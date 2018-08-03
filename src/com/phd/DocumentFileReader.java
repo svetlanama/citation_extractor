@@ -3,7 +3,6 @@ package com.phd;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.BufferedReader;
 import java.io.FileReader;
 
 
@@ -21,8 +20,6 @@ public class DocumentFileReader {
     }
 
     private void readFile(File inFile) {
-//        File inFile = new File("inputText.txt");
-
         try (BufferedReader br = new BufferedReader(new FileReader(inFile))) {
 
             String sCurrentLine;
@@ -31,15 +28,16 @@ public class DocumentFileReader {
                 System.out.println(sCurrentLine);
                 i++;
             }
-            performSearchInGoogleScholar("The Good, the Bad, and the Ugly of Silicon Debug ", "Doug Josephson ");
+            performSearchInGoogleScholar("Doug Josephson", "The Good the Bad and the Ugly of Silicon Debug");
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void performSearchInGoogleScholar(String name, String author) {
-
+    private void performSearchInGoogleScholar(String author, String subject) throws IOException {
+       GoogleScholar googleScholar = new GoogleScholar();
+       googleScholar.getRecordsByAuthor(author, subject);
 
     }
 
