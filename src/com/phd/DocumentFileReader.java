@@ -10,11 +10,17 @@ public class DocumentFileReader {
 
     public void listFilesForFolder(final File folder) {
         for (final File fileEntry : folder.listFiles()) {
-            if (fileEntry.isDirectory()) {
-                listFilesForFolder(fileEntry);
-            } else {
-                System.out.println(fileEntry.getName());
-                readFile(fileEntry);
+            System.out.println("fileEntry: " + fileEntry.getName());
+            //TODO:  remove all DSSTORE and check for extension
+
+            if (!fileEntry.getName().equals(".DS_Store")) {
+
+                if (fileEntry.isDirectory()) {
+                    listFilesForFolder(fileEntry);
+                } else {
+                    System.out.println(fileEntry.getName());
+                    readFile(fileEntry);
+                }
             }
         }
     }
@@ -24,11 +30,21 @@ public class DocumentFileReader {
 
             String sCurrentLine;
             int i = 0;
+            String subject = "";
+            String author = "";
             while (((sCurrentLine = br.readLine()) != null) && (i<2))  {
-                System.out.println(sCurrentLine);
+                //System.out.println(sCurrentLine);
+                System.out.println("i: " + i);
+                if (i == 0) {
+                    subject = sCurrentLine;
+                } else {
+                    author = sCurrentLine;
+                }
+
                 i++;
             }
-            performSearchInGoogleScholar("Doug Josephson", "The Good the Bad and the Ugly of Silicon Debug");
+           performSearchInGoogleScholar(author, subject);
+           //performSearchInGoogleScholar("Doug Josephson", "The good, the bad, and the ugly of silicon debug");
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -37,7 +53,8 @@ public class DocumentFileReader {
 
     private void performSearchInGoogleScholar(String author, String subject) throws IOException {
        GoogleScholar googleScholar = new GoogleScholar();
-       googleScholar.getRecordsByAuthor(author, subject);
+       String cites = googleScholar.getRecordsByAuthor(author, subject);
+       System.out.println("\n\n Author: " + author + "\n Subject: " + subject  + "\n Cites: " + cites);
 
     }
 

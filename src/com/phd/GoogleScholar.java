@@ -6,6 +6,7 @@ import com.sun.tools.javac.util.Name;
 
 import java.io.IOException;
 
+import java.net.URLEncoder;
 import java.util.prefs.Preferences;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -46,43 +47,52 @@ public class GoogleScholar {
         pref.remove("cookie");
     }
 
-    private static Pattern citeidPattern = Pattern
-            .compile("/scholar\\?cites=([\\d]*)\\&");
-    private static Pattern infoidPattern = Pattern.compile("info:([\\w-]*):");
-    private static Pattern britidPattern = Pattern
-            .compile("direct.bl.uk/research/([0-9/A-Z]*)\\.html");
-    private static Pattern doiPattern = Pattern.compile("id=doi:([^&]*)");
-    private static Pattern yearPattern = Pattern
-            .compile(" ([12][0-9][0-9][0-9])( |$)");
     private static Pattern authorPattern = Pattern.compile("[a-zA-Z ]*");
 
-    public void getRecordsByAuthor(String author, String subject)
+    public String getRecordsByAuthor(String author, String subject)
             throws IOException {
-        String url = "http://scholar.google.com/scholar?start=0&num=100&hl=en&as_sdt=1,5";
+        String url = "http://scholar.google.com/scholar?start=0&num=1&hl=en&as_sdt=0";
 
         Matcher matcher = authorPattern.matcher(author);
         if (!matcher.matches())
             throw new IllegalArgumentException("Illegal author name");
 
-        url += "&q=author:%22" + author.replace(' ', '+') + "%22";
+        String subj = URLEncoder.encode(subject, "UTF-8");
+        url += "&q=as_subj%3D%22=" + subj;
+        System.out.println("subj: " + subj);
 
-        String subj = subject.replace(' ', '+');
+        String aut = URLEncoder.encode(author, "UTF-8");
+        url += "%22+author%3D%22" + aut + "%22&btnG=";
+        System.out.println("aut: " + aut);
 
-        if (subj != null && subj.length() > 0)
-            url += "&as_subj=" + subj;
-
-        getRecordsByUrl(url);
+        System.out.println("url: " + url);
+        return getCitesByUrl(url);
     }
 
-    public void getRecordsByUrl(String url) throws IOException {
+    public String getCitesByUrl(String url) throws IOException {
 
 
         Document doc = getDocument(url);
-        System.out.println(doc);
+        //System.out.println(doc);
 
-        // TODO: make sure that the CD counter is incremented properly in the
-        // url list
-        //return records;
+        Elements elements = doc.select("div.gs_r");
+
+        System.out.println("element size: " + elements.size());
+        for (Element element : elements) {
+            //System.out.println("element: " + element);
+
+            Elements links = element.select(".gs_fl a[href]");
+            //System.out.println("links size: " + links.size());
+            for (Element link : links) {
+                 if (link.attr("href").contains("cites")){
+                     //System.out.println("links: " + link.text());
+                     return link.text();//.replace("Cited by ","");
+                 }
+
+            }
+        }
+
+        return "";
     }
 
     public Document getDocument(String url) throws IOException {
@@ -119,3 +129,4 @@ public class GoogleScholar {
 
 
 }
+     //  https://scholar.google.com/scholar?start=0&num=2&hl=en&as_sdt=0%2C5&q=as_subj%3D%22The+good%2C+the+bad%2C+and+the+ugly+of+silicon+debug%22+author%3A+%22Doug+Josephson%22&btnG=
