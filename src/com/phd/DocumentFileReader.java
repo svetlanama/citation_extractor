@@ -8,7 +8,12 @@ import java.io.FileReader;
 
 public class DocumentFileReader {
 
-    public void listFilesForFolder(final File folder) {
+    CSVBuilder csvBuilder =null;
+
+    public void listFilesForFolder(final File folder) throws IOException {
+        csvBuilder = new CSVBuilder();
+        csvBuilder.craeteCSV();
+
         for (final File fileEntry : folder.listFiles()) {
             System.out.println("fileEntry: " + fileEntry.getName());
             //TODO:  remove all DSSTORE and check for extension
@@ -23,6 +28,7 @@ public class DocumentFileReader {
                 }
             }
         }
+        csvBuilder.closeCSV();
     }
 
     private void readFile(File inFile) {
@@ -53,11 +59,18 @@ public class DocumentFileReader {
 
     private void performSearchInGoogleScholar(String author, String subject) throws IOException {
        GoogleScholar googleScholar = new GoogleScholar();
+       System.out.println("\n\n Author: " + author + "\n Subject: " + subject);
+       //String cites = "0";
        String cites = googleScholar.getRecordsByAuthor(author, subject);
        System.out.println("\n\n Author: " + author + "\n Subject: " + subject  + "\n Cites: " + cites);
+
+        //CSVBuilder csvBuilder = new CSVBuilder();
+        String authors = author.replace(" "," ");
+        System.out.println("authors: " + authors);
+        csvBuilder.buildCSV(cites, authors, subject);
 
     }
 
 }
-//https://github.com/mmaroti/shared/blob/master/org/reflocator/cites4/GoogleScholar.java
+
 //https://scholar.google.com.ua/scholar?hl=ru&as_sdt=0%2C5&q=The+Good%2C+the+Bad%2C+and+the+Ugly+of+Silicon+Debug+&btnG=

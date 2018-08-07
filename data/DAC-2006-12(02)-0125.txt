@@ -1,0 +1,670 @@
+A Multiprocessor System-on-Chip for Real-Time Biomedical Monitoring and Analysis:  
+Architectural Design Space Exploration
+Iyad Al Khatib 
+IMIT, ICT, KTH 
+Royal Institute of 
+Technology, Sweden  +4687904111 
+iyad@imit.kth.se  Francesco Poletti 
+DEIS 
+University of Bologna  Bologna, Italy  
++390512093782 
+fpoletti@deis.unibo.it  Davide Bertozzi 
+ENDIF 
+University of Ferrara   Ferrara, Italy  
++390532974832 
+dbertozzi@ing.unife.it  Luca Benini 
+DEIS 
+University of Bologna,   Bologna, Italy  
++390512093782 
+lbenini@deis.unibo.it 
+ 
+Mohamed Bechara 
+ECE, FEA 
+American University of  Beirut, Lebanon  
+    +9613051285 
+mfb05@aub.edu.lb  Hasan Khalifeh
+  
+ECE, FEA 
+American University of  Beirut, Lebanon  
+    +9613643891 
+hik05@aub.edu.lb  Axel Jantsch 
+IMIT, ICT, KTH 
+Royal Institute of 
+Technology, Sweden 
++4687904124 
+axel@imit.kth.se 
+  Rustam Nabiev
+  
+Biomedical Engineering  Karolinska University  Hospital, Sweden 
++46858586288 
+rustam.nabiev@kus.se 
+ABSTRACT
+ 
+In this  paper we focus on  MPSoC arch it ectures  for human h eart ECG 
+real-time monitoring and analysis. This is a very relevant bio-medical 
+application, with a huge potential market, hence it is an ideal target 
+for an application-specific SoC implementation. We investigate a 
+symmetr ic mult i-processor archit ecture based on STMicr oelectron ics  
+VLIW DSPs that process in real-time 12-lead ECG signals. This 
+architecture improves upon state-of-the-art SoC designs for ECG 
+analysis in its ability to analyze the full 12 leads in real-time, even 
+with high sampling frequencies, and ability to detect heart 
+malfunction. We explore the design space by considering a number of 
+hardware and software architectural options. 
+Categories and Subject Descriptors 
+C.3 [ Specia l-Purpose and Applicatio n-Based Syste ms ]: 
+Microprocessor/microcomputer applications, Real-time and embedded 
+system s 
+General Terms: Performance, Design, Experimentation. 
+Keywords: Multiprocessor System-on-Chip, embedded system 
+design, electrocardiogram algorithms, real-time analysis, hardware 
+space exploration
+ 
+1.  INTRODUCTION 
+The advance in embedded systems and multiprocessor trends pave the 
+way for the development of single-chip solutions for computationallyintensive bio-medical applications with huge potential health benefits  for a large number of individuals. One important application, in this 
+respect, is the rea l-t ime r emote and accurate analysis of human heart 
+activity, which has always been a challenging problem for biomedical 
+engineers. Heart disorders like Cardiovascular Disease (CVD) and 
+stroke remain by far the leading cause of death in the world for both 
+women and men of all ethnic backgrounds. In 2003, CVD alone is 
+responsible for 29.2% of the total global deaths according to the 
+World Health Organization (WHO), and this percentage is increasing 
+every year [1]. More than 50% of these deaths can be saved with a 
+reliable combination of cost-effective monitoring and accurate 
+analysis [1].  
+Heart activity is electrically recorded as a set of electrocardiogram 
+(ECG) signals which can readily reveal a number of heart 
+malfunctions [2][3][4]. The most re
+liable ECG analysis technique is 
+the 12-lead ECG, which requires the reading and analysis of twelve 
+different signals sensed from the patient?s body. The main challenge 
+arises from the high computational demand for processing huge 
+amounts of ECG data in parallel, under stringent time constraints, 
+relat ively high samplin g fr equ encies, and life-crit ical cond itions [5]. 
+The challenges become even more complex when the patient is 
+mobile and remotely monitored (as in cases of homecare and 
+emergency at the point-of-need) [6], because state-of-the-art 
+biomedical equipment for heart monitoring lack the ability to provide 
+large-scale analysis and remote, real-time computation at the patient?s 
+location. This necessitates the transmission of huge amounts of lifecritical data over a communication link to a large set of computing 
+devices on another location [3]. In cases of mobile patients, this 
+requires a 100% functional always-ON wireless connection since 
+losing a few heart-beat data may be life threatening.  
+To over come the afor ementioned cha llen ges and the problem of 
+transmitting life-critical data on a wireless link (that is not reliable nor 
+secure enough), the solution is to parallel-process the complex 
+biomedical computations of the 12-lead ECG on a wearable multiprocessor s ystem-on-ch ip (MPSoC). Hence, th e solut ion on ly 
+transmits secure remote-alarm signals and only reports on the  results 
+of the analysis. Thes e result -r eports, are mu ch smaller in size (a few 
+bytes) than the ECG data (in Mega bytes), and if transmission fails, 
+they can be re-transmitted until reception is acknowledged by the 
+ 
+Permission to make digital or hard copies of all or part of this work for 
+personal or classroom use is granted without fee provided that copies are 
+not ma de or distributed for profit or commercial adva ntage and that 
+copies bear this notice and the full citation on the first page. To copy 
+otherwise, or republish, to post on servers or to redistribute to lists, 
+requires prior specific permission and/or a fee. 
+DAC 2006 , July 24?28, 2006, San Francisco, California, USA. 
+Copyright 2006 ACM 1-59593-381-6/06/0007?$5.00. 
+ 
+9.1 
+125
+
+healthcare remote-monitoring center since they are saved on an offchip memory for every analyzed ECG data chunk.  
+This technica l ob ject ive ca lls for the design of special-purpose SoC 
+architectures, featuring incr eased en ergy efficien cy while provid ing 
+high computation capabilities. In this paper we introduce a novel 
+MPSoC architecture for ECG analysis which improves upon state-ofthe-art mostly for its capability to perform a number of real-time 
+analyses of input data with high sampling frequencies, leveraging the 
+computation horsepower and the functional flexibility provided by 
+many (up to twelve) concurrent DSPs. The proposed architecture 
+addresses usabilit y, s ecur ity and safet y of the patients in emergen cy 
+situations and long-term treatments. Comparison between our design 
+and previous work shows the advantages of our design from a SoC 
+performance point of view and from an application point of view.  
+The biochip system builds upon some of the most advanced industrial 
+components for MPSoC design (multi-issue VLIW DSPs, system 
+inter connect fr om STMicroelectron ics, and commer cial off-th e-sh elf 
+biomedical sensors), which have been composed in a scalable and 
+flexible plat for m. Ther efor e, we ha ve ensured its reusability for future 
+generations of ECG analysis algorithms and its suitability for porting 
+of other biomedical applications, in particular those collecting input 
+data from wired/wireless sensor networks.  
+The paper goes through all the steps of the design methodology, from 
+application functional specification to hardware definition and 
+modeling. System performance has been validated through functional, 
+timing accurate simulation on a virtual platform. A 0.13?m 
+technology homogeneous power estimation framework leveraging 
+industrial power models is used for power management 
+cons iderations.
+ 
+2. BACKGROUND 
+Biomed ical s ensors toda y exh ibit in creased ener gy efficien cy,  
+therefore prolonged lifetimes (up to 24 hours), and higher sampling 
+frequencies (up to 10 kHz for ECG) and often provide for wireless 
+connectivity [7]. Unfortunately, a mismatch exists between advances 
+in sensor technology and the capabilities of state-of-the-art heartbeat 
+analyzers [5]. They cannot usually keep up with the data acquisition 
+rate, and are usually wall-plugged, thus preventing mobile monitoring. 
+We aim at using state of the art commercial sensors from Ambu Inc. 
+silver /silver chlor ide ?Blu e Sensor R? [7]. 
+2.1  Application Specific Background 
+Our application is the 12-lead ECG, which uses nine sensors on the 
+patient's body.  With 3 of these sensors, physicians can use a method 
+known as the 3-lead ECG, which suffers from the lack of information 
+about some parts of the heart. By interconnecting the nine sensors for 
+the 12-lead ECG we get twelve b iomed ica l voltage signa ls; hen ce, 
+produce huge amounts of data especially when used for a long number 
+of hours. Physicians use the 12-lead ECG method, because it allows 
+them to view the heart in its three dimensional form; thus, enabling 
+detection of any abnormality that may not be apparent in the 3-lead 
+technique. Figure 1 shows an example of a typical ECG signal, where  
+the most important peaks are labeled: P, Q, R, S, T, and U. Each of 
+these peaks and inter-peak distances is related to a heart activity that 
+is of importance for analysis, and every combination of different interpeak intervals proves a type of heart malfunction. The higher the 
+samplin g fr equency the mor e accurate is the analys is since there are 
+cases of dis eases, wh ere two peaks are too close ( especially the R and 
+T peaks in the case of R-on-T phenomenon) so that it becomes hard to 
+detect the inter-peak distances and the heart period. 
+2.1.1  Filtering 
+D
+ata provided by biomedical sensors suffers from several types of 
+noise: DC-offset, patient movements, and signal interference [8]. To  overcome all the problems related to sensor noise, we designed an IIR 
+filter (implemented in hardware on a dedicated chip feeding an 
+external SDRAM memory) that outputs its results in 16-bit binary 
+format. Our IIR filter is of order 3, because it proves enough for our 
+ECG analys is. Figure 1 shows an exa mple of our filter resu lts.  
+2.1.2
+ Algorithm Our proposed ECG-analys is algor ithm is con ceived to be parallel and 
+hence scalable from the ground up. Since each lead senses and 
+analyzes data independently, each lead can then be assigned to a 
+different processor. So, to extend ECG analysis to 15-lead ECG for 
+exa mple or more, then what is requir ed is to just change the number  
+of processin g elements in the system. The program reads a data file in 
+chunks of four seconds. We discuss below the reason for the choice of 
+the 4-second chunks. The data file mainly holds the values of the ECG 
+at the lead in binary format. So by reading the data continuously every 
+4 seconds, we would be emulating a real sensor sending continuous 
+data to an intermediate buffer that holds 4 seconds of data sampled at 
+a certain frequency, typically 1000Hz. We used an autocorrelation 
+function (ACF) based-methodology to calculate the period and other 
+parameters of the heartbeat since it gives more accurate results than 
+the con vent iona l methods s earchin g for the d istance bet ween t wo 
+peaks. The autocorrelation we use as shown in (1) has a certain 
+number of Lags (L) to minimize the computation for our specific 
+application as discussed below. We validated our algorithm over 
+several medical traces [9].  
+ 
+Figure 1. ECG lead signal example: the upper curve is the Lead raw 
+data and the lower curve is the filtered ECG lead.  
+[] [ ] [ ]n
+R k yn yn k y
+n=?
+=?? ?
+=??  (1) 
+wher e,  R
+y is the autocorrelation function,  y is the filtered signal under 
+study,  n is the index of the signal  y, and  k is the number of lags of the 
+autocorr elation (L has an effect on the performan ce due to the high 
+number of multiplications). We run the experiments for n = 1250, 
+5000 and 50,000 relative to the sampling frequencies of 250, 1000, 
+and 10,000Hz, respectively. To run this algorithm with (1) it takes  
+around 1.75 million multiplications. To minimize errors and execution 
+time we use the derivative of the ECG filt ered signal s ince if a 
+function is periodic then its derivative is periodic. Hence the 
+autocorrelation function of the derivative can give the period as 
+shown in Figure 2. In order to be able to analyze ECG data in realtime and to be reactive in transmitting alarm signals to healthcare 
+centers (in less than 1 minute), a minimum amount of acquired data 
+has to be processed at a time without losing the validity of the results. 
+For the heart beat period, we need at least 4 seconds of ECG data in 
+order for the ACF to give correct results. From a technical viewpoint, 
+real-time processing of ECG data would allow a finer-granularity 
+analysis with respect to the traditional eyeball monitoring of the paper 
+ECG readout.  
+5.25.35.45.55.65.75.85.96-0.4
+-0.2
+0
+0.2
+0.4
+0.6
+Tim e (sec)
+Voltage (m V)Q
+P R
+S T
+U
+Sensor  Raw Data
+Filtered Data
+Two confusing R peaks before filtering
+One clear R peak after filtering
+126
+
+2.2 Previous Work 
+ECG monitoring and analysis have been explored in many companies 
+and research organizations. However, we are not aware of any singlechip r eal-t ime analysis solut ion for fu ll 12-lead ECG, wh ich is able to 
+accurately study the heart rhythmic period and can diagnose all the 
+peaks: P, Q, R, S, T and U and their inter-peak intervals to result in a 
+disease diagnosis. Previous work on ECG analysis can be classified 
+into 4 typ es of s olutions: ( i) classica l stationary mach ine s olutions 
+[10], (ii) SoC solutions [11][12],  (iii) Handheld device solutions [13] 
+[14], and (iv) and ASIC solutions [15]. The classical solutions do not 
+allow for patient mobility nor remote analyses since they are wall 
+plugged, thus suffer from the need of many beds in the healthcare 
+cent er. Moreover, in the classica l medica l technique for ECG analys is, 
+the 12 lead signals are printed on eyeballing paper making the check 
+of the different heart peaks and rhythms difficult and inaccurate due to 
+its dependence on the physician?s eyes. On the other hand, when using 
+digital recording and filtering we can determine the peaks more 
+accurately.  The SoC solution in [11] does not run 12 lead analyses, 
+but runs 1 lead per SoC. Consequently, to run 12-lead analyses with 
+that solution means using 12 chips. One commercial solution [12] 
+takes 8 input sensor-lines and calculates lead signals and analyzes 
+them on the one DSP, hence it is time consuming. It only detects if the 
+heart is healthy or unhealthy without analyzing diseases since it only 
+detects the QRS without the P and T. Hence, it is not scalable. It uses 
+12 bits for the signals while we use 16 bits, thus, we add more 
+accuracy to the analysis. The handheld solutions only read and 
+transmit data. The ASIC solutions are just used for data acquisition 
+before transmission. 
+ 
+ 
+ 
+ 
+Figure 2.  He art period analysis: (a) ECG sig nal pe aks P, Q, R, S, T, 
+and U; (b) derivative amplifying the R peaks, that we label as R?; (c) 
+autocorrelation of the derivative with clear significant periodic peaks. 
+3.  MPSOC ARCHITECTURE 
+In order to process filtered ECG data in real-time, we choose to 
+deploy a parallel Mult i-Process or System-on -Ch ip archit ecture.  The  key point of these systems is to break up functions into parallel 
+operations, thus speeding up execution and allowing individual cores 
+to run at a lower frequency with respect to traditional monolithic 
+processor cores. Technology today allows the integration of tens of 
+cores onto the same silicon die, and we therefore designed a parallel 
+system with up to 13 masters and 16 slaves (
+Figure 3).  Since we are 
+targeting a platform of practical interest, we choose advanced 
+industrial components [16]. The processing elements are multi-issue 
+VLIW DSP cores from STMicroelectronics, featuring 32kB 
+instruction and data caches. Th ese cores ha ve 4 execut ion un it stages  
+and rely on a high ly opt imized cross-comp iler in order to exp loit the 
+parallelism. They leverage the flexibility of programmable cores and 
+the computation efficien cy of DSP cor es. By th e way, thes e features 
+allow to reuse this platform for other biomedical applications other 
+than the 12-lead ECG, thus making it cost-effective. Each processor 
+core has its own private memory (512KB each), which is accessible 
+through the bus, and can access an on-chip shared memory (8KB are 
+enough for this application) for storing computation results. Other 
+relevant sla ve compon ents are a semaphore sla ve, imp lementing the 
+test-and-set operation in hardware and used for synchronization 
+purposes by the processors or for accessing critical sections, and an 
+interrupt slave, which distributes interrupt signals to the processors. 
+Interrupts to a certain processor are generated by writing to a specific 
+location mapped to this slave core. The STBus interconnect from 
+STMicr oelectron ics was instantiated as the system commun icat ion 
+backbone. STBus can be instantiated both as a shared bus or as a 
+partial or full crossbar, thus allowing efficient interconnect design and 
+providing flexible support for design space exploration. 
+ In our first implementation, we target a shared bus to reduce system 
+comp lexity (see Figure 3) and assess whether application requirements 
+can already be met or not with this configuration. We then explore 
+also a crossbar-based system, which is sketched in 
+Figure 4. The 
+inherent increased parallelism exposed by a crossbar topology allows 
+to decr ease content ion on shared communication resources, thus 
+reducing overall execution time.  In our implementation, only the 
+instantiation of a 3x6 crossbar was interesting for the experiments. We 
+put a privat e memor y on ea ch branch of the crossbar, which can be 
+accessed by the associated processor core or by a DMA engine for 
+off-chip to on-chip data transfers. Finally, we have a critical 
+component for system performance which is the memory controller. It 
+allows efficient access to the external 64MB SDRAM off-chip 
+memory. A DMA engine is embedded in the memory controller tile, 
+featuring multiple programming channels. The controller tile has two 
+ports on the syst em inter conn ect, one s la ve p ort for control and one 
+master port for data transfers. The overall controller is optimized to 
+perform long DMA-driven data transfers and can reach the maximum 
+speed of 600MB/s. Embedding the DMA engine in the controller has 
+the additional benefit of minimizing overall bus traffic with respect to 
+traditiona l standalone s olut ions. Our imp lementation is particular ly 
+suitable for I/O intensive applications such as the one we are targeting 
+in this work. 
+In the above d escr iption, we ha ve r eport ed the worst case syst em 
+con figurations. In fact, fewer cor es can be eas ily instantiated if 
+need ed. In  contrast, this archit ectural temp late is very sca lable and 
+allows for further future increase in the number of processors. This 
+will allow to run in real time even more accurate ECG analyses for the 
+highest sampling frequency available in sensors (10,000Hz, and 15 
+leads, for instance). Th e entire s ystem has been s imu lated by means of 
+the MPSIM simulation environment [16], which provides for cycleaccurate functional simulation of complete MPSoCs at a simulation 
+speed of 200Kcycles/second (on average), running on a P4@3.5GHz. 
+The simulator provides also a power characterization framework 
+leveraging 0.13?m technology-homogeneous industrial power models 
+from STMicroelectronics [17][18]. We believe that for life-critical 
+applications, low-level accurate simulation is worth doing, although 
+potentially slow, in order to perfectly understand system level 
+P 
+Q R 
+S T 
+R?  R 
+R? 
+U 
+(a) Filtered ECG Data 
+(b) Deri vati ve of the ECG Signal  Time (seconds) 
+Voltage (mv) 
+Time (seconds) 
+(c) Autocorrelation Function of the Derivati ve 
+Period 
+Time (seconds) 
+127
+
+behaviour and have a predictable system with minimum degrees of 
+uncertainty.  Each processor core programs the DMA engine to 
+periodically transfer input data chunks onto their private on-chip 
+memories. Moved data corresponds to 5 seconds of data acquisition at 
+the sensors: 10kB at 1000Hz sampling frequency, transferred on 
+average in 319279 clock cycles (DMA programming plus actual data 
+transfer) on a shared bus with 12 processors. The consumed bus 
+bandwidth is about 6Mbyte/sec, which is negligible for an STBus 
+interconnect, whose maximum theoretical bandwidth with 1 wait state 
+memories exceeds 400Mbyte/sec. Then each processor performs 
+computation independently, and accesses its own private memory for 
+cach e lin e refills. Differ ent solutions can be exp lored, such as 
+processing more leads onto the same processor, thus impacting the 
+final execution time. Output data, amounting to 64 byte, are written to 
+the on-chip shared memory, but their contribution to the consumed 
+bus bandwidth is negligible. In principle, when the shared memory is 
+filled beyond a certain level, its content can be swapped by the DMA 
+engine to the off-chip SDRAM, where the history of 8 hours of 
+computation can be stored. Data can also be remotely transmitted via 
+a telemedicine link. 
+4. EXPERIMENT DESPCRIPTION 
+We ran experiments in order to check the limits to respect the time 
+figure of merit since our MPSoC is a real-time application based 
+system. So we ran exp eriments to ch eck the p erformance of ea ch 
+system design with increasing frequencies (up to 10KHz). We also ran 
+experiments to look for optimizing the algorithm together with the 
+design by changing some algorithm parameters and looking into the 
+overall performance of the specific biomedical application on each 
+MPSoC design. We also ran experiments by distributing the 
+application on different numbers of DSP cores for each design (shared 
+bus, crossbar, and partial crossbar). The results of these experiments 
+are presented in Section 5 below. 
+5.  RESULTS 
+As a first exploration, we have compared the performances of an 
+ARM7TDMI with the ST220 DSP, in order to verify the 
+performances of the chosen VLIW with respect to the computation 
+kernel of our specific application. In order to have a safe comparison, 
+we set similar dimensions of the cache memory (32KB) for the two 
+solutions, and we run two simulations for the processing of one ECGLead at 250Hz sampling frequency. We run a performancecomparison between two application-specific cores. We adopt this one 
+cor e s olut ion, because our first aim is t o in vest igat e the computation 
+efficiency of the two cores for our specific biomedical application, 
+and de-emphasize system level interaction effects such as 
+synchronization mismatches or contention latency for bus access. 
+Hen ce, th e per for mance of the ARM7 core s er ves as a refer ence to 
+assess the computation efficiency of the VLIW DSP core for the same 
+specific application. In Figure 5, we can observe that the LX220 DSP 
+results in a better behavior in both: execution time and energy 
+consumption. In detail, the ARM core is 9 times slower than the 
+ST220 in terms of execution time, and it consumes more than twice 
+the en ergy incurred b y the DSP. Thes e r esults can b e exp lain ed based 
+on three cons iderations: 
+(i)   The ST220 has better software development tools, which result 
+in a smaller executable code. The size of the executable code for 
+the ARM is 1.7 times larger than that of the ST220 
+(ii)  The ST220 is a VLIW DSP core, therefore it is able to 
+theoret ically ach ieve the ma ximu m performan ce of 4 instructions 
+per cycle (i.e., 1 bundle) 
+(iii)  A metric which is related to both previous considerations is the 
+static instructions-per-cycle, which depends on the compiler 
+efficiency and on the multi-pipeline execution path of the  ST220. For our application, this metric turns out to be 2.9 
+instructions-per-bundle. 
+ 
+ 
+Figure 3. Single bus architecture with STBus interconnect. 
+ 
+ Figure 4. Full Crossbar architecture with STBus interconnect . 
+ 
+Let us ther efor e select th e best process or cor e for our computation 
+kernel, from the performance and energy viewpoints. We now want to 
+optimally configure the system to satisfy the application requirements 
+at the minimum hardware cost. We therefore measure the execution 
+time and the energy dissipation for an increasing number of DSP 
+cores in order to find the optimal configuration of the system. Since 
+commer cially a vailable ECG solut ions target sampling frequ encies  
+ranging from 250 to 1000 Hz, we performed the exploration for these 
+two extreme cases for the 12-lead ECG signal. We analyze a chunk of 
+4secs of input data, which provides a reasonable margin for safe 
+detection of heartbeat disorders. Note that the computation workload 
+for the processor cores increases in a quadratic manner with 
+increasing sampling-frequency (due to the specific application 
+algorithm). 
+Figure 6 shows that if we increase the number of processors, the 
+execution time scales linearly, which proves that second order effects 
+typical of multi-processor systems (e.g., bus contention reducing the 
+offered bandwidth to the processor cores with respect to the requested 
+one) has only negligible effects on system performance, proving that 
+the system is well configured and a single shared bus communication 
+architecture is well suited for this applicat ion. However, this does not 
+mean that the amount of data moved across the bus is negligible: 
+around 100KB (at 1000Hz). This data is, however, read by the 
+processor core through out the entire execut ion time, thus absorbing 
+only a small portion of the bus bandwidth. In this regime, the bus 
+performance is still additive. 
+DSP 1
+ Memory 
+Controller   
++           
+DMA Shared   
+Memory 
+INTERRUPT 
+Semaphore
+DSP N
+PRIVATE 1
+PRIVATE N
+ 
+Off-Chip 
+SDRAM 
+On-Chip 
+Memory Memory 
+Controller    +            
+DMA 
+DSP 1
+DSP N
+PRIVATE 
+PRIVATE N 
+Semaphore 
+INTERRUPTSTBus
+Off-Chip 
+SDRAM 
+128
+
+Figure 5. Comparing ARM7TDMI with a ST200 DSP performances, in processing 1 Lead at 250Hz sampling frequency. 
+ Figure 6. Execution Time and relative energy of shared bus at 250Hz sampling frequenc y.  
+Moreover, the perfect scalability of the application is also due to 
+memory controller p erformance. In fact, at the b eginn ing of the 
+computation each processor loads processing data from the off-chip to 
+the on-chip memory, hence, requiring peak memory controller 
+bandwidth. The architecture of the memory controller proves capable 
+of providing the required bandwidth in an additive fashion. By 
+looking at the 1000Hz plot (Figure 7), we observe that 1 DSP is able 
+to process an ECG-lead in slightly more than 3 seconds. Therefore, 
+we still have about 1 second left (before the 4secs deadline), which is 
+enough to perform additional analysis of the results of the individual 
+lead-computations and converge to a decision about the heart period 
+and malfunctions. Looking forward, we try to understand how our 
+solution situates itself with respect to the demand for higher sampling 
+frequencies raised by the need to perform higher accuracy analysis 
+and the evolution of state-of-the-art sensor technology. We, therefore, 
+measure and plot the maximum sampling frequency at which our 
+MPSoC solution can be operated while still meeting real-time 
+requirements. This frequency translates to poor scalability. The reason 
+for this is mainly the interconnect performance, which does not scale 
+any more. In fact, bus busy (the number of bus busy cycles over the 
+total execution time) at the critical frequency of 2200Hz is almost 
+100% (99.95%), i.e., the bus is fully saturated. This is due to the fact 
+that the amount of data being transferred across the bus increases 
+linearly with the sampling frequency. In order to make the platform 
+performance more scalable, we revert to a full-crossbar solution for 
+the communication archit ecture. Th e ben efits are clear ly obser ved  
+Figure 8, where the maximum analyzable frequency (with respect to 
+real-time constraints) amounts now to 4000Hz, i.e. nearly twice as 
+much as the per for mance with a shared bus. Moreover, we obser ve 
+that average bus transaction latencies at the critical frequency are still 
+very close to the minimum latencies, thus indicating that the crossbar 
+is very lightly loaded. Another informative metric is the bus efficiency 
+(number of cycles during which the bus transfers useful data over the 
+bus busy  cycles), which amounts to 71.83%. 
+We simulate the 12-processor system to get the upper bound on 
+system per formance and push the architecture t o the limit. For the 
+same reason, we restrict the analysis period to 3.5secs, which is the 
+minimum value of the input data-chunk time-span derived from the 
+biomedical algorithm.  The results presented in Figure 8 show that  with shared-bus architecture, the maximum sampling frequency that 
+the MPSoC can handle without going beyond the real-time constraint 
+is only around 2200Hz. 
+ Figure 7. Execution Time and relative energy of shared bus at 1000Hz 
+sampling frequenc y. 
+ Figure 8. Critical sampling Frequencies for 3 architectures: (1) shared bus, (2) full crossbar, and (3) partial crossbar. 
+ This good performance is an effect of the lack of contention on the 
+crossbar branches, which is in turn due to the high performance of the 
+memory controller and to the matching of the application traffic 
+patterns with the underlying parallel communication architecture. As a 
+cons equ ence, with a full cr ossbar the system per formance is no more 
+interconnect-limited but computation-limited. Since the computation 
+workload of the system grows in a quadratic manner with the 
+sampling frequency, it rapidly increases task execution times and 
+reduces th e a va ilable s lack t ime with resp ect t o th e dead line. We 
+observe that the performance with a partial crossbar closely matches 
+that of a full-crossbar (less than 2% average difference) but with 
+almost 3 times less hardware resources. We found the optimal partial 
+crossbar configuration (5x5 instead of a 13x13) by accurate 
+characterization of shared bus performance. On a shared bus, we 
+increased the number of processors and observed when the execution 
+times started deviating as an effect of bus contention. With up to 4 
+cor es connect ed to th e same shared communication r esource, this  
+latter is able to work in an additive regime. Although the architecture 
+cannot work in real-time at more than 4000Hz, we wanted to measure 
+the execution time under non-real-time computation. In fact, from the 
+execution time to process 3.5secs of input data, we can derive the 
+amount of buffering that is required to store incoming data from the 
+lead. By knowing the overall capacity of the off-chip memory, we 
+then derive the maximum analysis time that we can afford at such 
+high frequencies. Results are shown in Figure 9. Let us focus on the 
+shared bus case, with 10KHz. The execution time for analyzing 
+3.5secs is a bit less than 1 minute (around 57secs), which is 16 times 
+more than the real-time constraint. As a consequence, we can still 
+decide to perform this kind of analysis, but we need to buffer 16 input 
+data chunks while we are processing one chunk. Since an off-chip 
+SDRAM memory can be 512MB, we can perform 3.5 minutes 
+analysis before saturating the memory. With a full crossbar, this time 
+amounts to around 14 minutes.
+ 
+ 1     2    4   6    12
+1     2       4      6      12                                 1       2       4       6     12
+  1       2      4      6       12
+(Hz) 
+129
+
+Figure 9.  Analysis-time investigation with increasing frequencies (up to 10KHz) for the ECG application.  
+ 
+6. SOLUTIONS COMPARISON 
+Comparing our application-based MPSoC designs, we can choose the 
+best architecture relative to the biomedical purpose. Hence, for a 
+solut ion that compet es with and performs bett er than the exist ing 
+commercial solutions [12] (input sampling frequency from 250 to 
+1000Hz), we adopt our shared bus system architecture (Figure 3) 
+since its ad vantages over exist ing solut ions are:  
+(i)  ECG SoC available solution nearest to ours is [11], but our design 
+performs bett er on analysis t ime-consumption. Our solution is  
+easier to deploy since the 12 leads are input to one SoC instead of 
+having 12 SoCs (i.e. cheaper to scale with increasing leads) 
+(ii)  In our designs, we can do full 12-lead ECG analysis at relatively 
+high frequen cies. Our design is opt ima l esp ecia lly that we can 
+offer the choice of the SoC ar chit ecture (shared bus, crossbar, or 
+partial crossbar) based on the biomedical need of a frequency 
+range.  
+Table 1 shows the advantage of our three designs to the best available 
+designs we are a ware of in the res earch and in the market.  
+Table 1. Comparison between ECG analysis research SoC solution 
+[11], available SoC commercial solution [12], and our three MPSoC 
+designs: ST-PCB is partial crossbar, ST-CB is Full Crossbar, and ST- SB is the Shared Bus solutio n. Fs is the sampling fre quenc y. 
+Solution Data 
+bits  Memory Fs 
+(Hz) Analysis 
+Time  SoC 
+inputs  Prefilter  Application results 
+ST-PCB 16 Off chip = 512MB 32kB I -cache/D SP 32kB D-cache/DSP 
+4000< 3.5s 12 IIR Full 12-LE AD:  he art-period; P,Q,R,S,T,U peaks;& 
+detect diseaseST-CB 16 Same as  above 4000< 3.5s 12IIR Same as above ST-SB 16 Same as  above 2200< 4s 12IIR Same as above [11] 10  8KB Cache  250 No 
+study 1 Notch Only QRS, only de cide 
+if healthy or unhealthy
+[12] 12  No info  800 No  study 8  IIR  Only QRS,  de cide  if 
+healthy or unhe althy  
+  
+7. CONCLUSION 
+We present an application-specific MPSoC architecture for realtime ECG analysis. Our solution leverages the computation 
+horsepower of many (up to 12) concurrent DSP cores to process 
+ECG data. This solution paves the way for novel healthcare 
+delivery scenarios (e.g., mobility) and for accurate diagnosis of 
+heart-related diseases. We describe the design methodology for 
+the MPSoC and explore the configuration space looking for the 
+most effective solution, performance and energy-wise. We present  three interconnect architectures (Single Bus, Full Crossbar, and 
+Partial Crossbar) and compare them with existing solutions. The 
+sampling frequencies of 2200Hz and 4000Hz, with 12 DSPs are 
+found to be the critical points for our Shared-Bus design and 
+Crossbar architecture, respectively.
+ 
+8.
+ REFERENCES 
+[1]  Fuster, V. Epidemic of Cardiovascular Disease and Stroke: The 
+Three Main Challenges,  Circulation, Vol. 99, Issue 9 , March 1999, 
+1132-1137.  
+[2]  Lo, B., Thiemjaru s, S., King, R., and Yang, G. Body Sensor 
+Network? A Wireless Sensor Platform for Pervasive Healthcare 
+Monitoring,  Adjunct Proceedings of the 3rd International 
+Conference on Pervasive Computing (PERVASIVE?05), May 2005, 
+77-80. 
+[3]  Code Blue, Medical Wireless Sensor Networks,  
+http://www.eecs.harvard.edu/~mdw/proj/codeblue 
+[4] BIOPAC  Syst ems I nc.,  http://biopac.com/ 
+[5] Harland, C., Clark,T., and Prance, R. High resolution ambulatory 
+electrocardiographic monitoring using wrist-mounted electric 
+potential sensors,  Measurement Science and Technology, Vol. 14 , 
+2003,  923-928. 
+[6]  Heart and Stroke Foundation of Canada, The Changing Face of 
+Heart Disease and Stroke in Canada 2000, Annual report, 1999. 
+[7] Ambu, Inc. biomedical devices company,  www.ambuusa.com  
+[8] Company-Bosch, E., Hartmann, E. ECG Front-End Design is 
+Simplified with MicroConverter,  Journal of Analog Dialogue, Vol. 
+37 , November 2003. 
+[9]  PhysioBank, Physiologic signal archives, for biomedical research, 
+http://www.physionet.org/physiobank/database/ptbdb/ 
+[10]  BIOPAC  syst ems Inc., htt p:/ /biopac.com/ 
+[11] Chang, M., Lin, Z., Chang, C., Chan, H., and Feng, W. Design of a 
+System-on-Chip for ECG signal processing,  The 2004 IEEE AsiaPacific Conference on Circuits and Systems , December 6-9, 2004.  
+[12] FreescaleTM semiconductor, Personal Electrocardiogram (ECG) 
+Monitor,  http://www.freescale.com/  
+[13] Hung, K., Zhang, Y. T., and Tai, B.  Wearable Medical Devices for 
+Tele-Home Healthcare,  In Proceedings of the 26th Annual 
+International Conference on the IEEE EMBS , San Fra ncisco, CA, 
+USA, September 1-5, 2004. 
+[14]  Jun, D., and Hong-Hai, Z., Mobile ECG detector through 
+GPRS/Internet,  In Proceedings of the 17th IEEE Symposium on 
+Computer-Based Medical Systems (CBMS?04) , 2004. 
+[15] Desel, T., Reichel, T., Rudischhauser, S., and Hauer, H. A CMOS 
+Nine Channel ECG Measurement IC,  2nd International Conference 
+on ASIC , 1996, Oct. 1996, 115-118. 
+[16] Loghi, M., Angiolini, F., Bertozzi, D., Benini, L., a nd Za falon, R. 
+Analyzing On-Chip Commu nication in a {MPSoC} Environment,  In 
+Proceedings of Design and Test in Europe Conference (DATE) , 
+February 2004, 752-757. 
+[17]  Loghi, M., Poncino, M., and Benini, L. Cycle-Accurate Power 
+Analysis for Multiprocessor Systems-on-a-Chip,  GLSVLSI04: Great 
+Lake Symposium on VLSI , April 2004,  401-406. 
+[18] Bona, A., Zaccaria, V., and Zafalon, R. System level power 
+modeling and simulation of high-end industrial network-on-chip'',  In 
+Proceedings of Design and Test in Europe Conference (DATE) , 
+February 2004, 318-323. 
+ 
+Hz 
+130

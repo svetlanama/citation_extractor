@@ -53,9 +53,9 @@ public class GoogleScholar {
             throws IOException {
         String url = "http://scholar.google.com/scholar?start=0&num=1&hl=en&as_sdt=0";
 
-        Matcher matcher = authorPattern.matcher(author);
-        if (!matcher.matches())
-            throw new IllegalArgumentException("Illegal author name");
+//        Matcher matcher = authorPattern.matcher(author);
+//        if (!matcher.matches())
+//            throw new IllegalArgumentException("Illegal author name");
 
         String subj = URLEncoder.encode(subject, "UTF-8");
         url += "&q=as_subj%3D%22=" + subj;
@@ -86,7 +86,7 @@ public class GoogleScholar {
             for (Element link : links) {
                  if (link.attr("href").contains("cites")){
                      //System.out.println("links: " + link.text());
-                     return link.text();//.replace("Cited by ","");
+                     return link.text().replace("Cited by ","");
                  }
 
             }
@@ -129,4 +129,4 @@ public class GoogleScholar {
 
 
 }
-     //  https://scholar.google.com/scholar?start=0&num=2&hl=en&as_sdt=0%2C5&q=as_subj%3D%22The+good%2C+the+bad%2C+and+the+ugly+of+silicon+debug%22+author%3A+%22Doug+Josephson%22&btnG=
+//  https://scholar.google.com/scholar?start=0&num=2&hl=en&as_sdt=0%2C5&q=as_subj%3D%22The+good%2C+the+bad%2C+and+the+ugly+of+silicon+debug%22+author%3A+%22Doug+Josephson%22&btnG=

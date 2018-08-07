@@ -1,0 +1,178 @@
+DAC Technologist Panel "The IC Nanometer  Race ? What Will it Take to Win" 
+ 
+Chair: 
+Walden C. Rhines 
+Mentor Graphics 
+Wilsonville, Oregon  Organizer: 
+Laura Parker 
+Mentor Graphics 
+Wilsonville, Oregon
+Panelists: 
+Gadi Singer 
+Intel Corporation 
+Santa Clara, California 
+Philippe Magarshack 
+STMicroelectronics 
+Crolles cedex, France   
+Dr. Dennis Buss 
+Texas Instruments, Inc. 
+Dallas, Texas
+Dr. Fu-Chieh Hsu 
+Taiwan Semiconductor Manufacturing Company  Hsinchu, Taiwan, R.O.C. 
+ 
+Dr. Ho-Kyu Kang 
+Samsung Electronics Co., Ltd. Seoul, Korea 
+ 
+Abstract: 
+Creating ICs in the nanometer age is a high-stakes race that 
+few companies can afford to compete in ? and even fewer 
+can win.  Hear how senior technologists from the world?s 
+top technology companies are striving to improve their 
+chances of success.  Will leakage constraints force powersensitive applications to stay with older technologies, or will 
+there be a bifurcation to a new process technology?  Will 
+ballooning capital equipment expenses delay new capacity 
+or price out design rules for mainstream applications?  Will 
+silicon-on-insulator and new device structures like FinFETs 
+force rethinking of design, modeling and simulation 
+methodologies?  And which EDA technologies, delivered 
+when, will be critical for victory?  
+ These senior technologists, from some of the biggest 
+companies in the high tech industry, will discuss and debate 
+how they think the overall industry will successfully 
+transition to the nanometer age.   Specific examples from the 
+technologists? broad exposure to industry trends and 
+competitors will help illu strate their forecasts and 
+predictions. 
+Categories and Subject Descriptors  
+Hardware, integrated circuits 
+General Terms: 
+Design, economics, management 
+Keywords: Hardware 
+ 
+  Some of the issues for discussion include: 
+New Technology Nodes?When will they 
+debut? 
+There has been considerable debate whether Moore?s Law is 
+still in effect or not.  The panel will discuss the outlook for 
+ramp-up of 65nm and 45nm based products.  Specifically, 
+how broadly will these process nodes be adopted and where 
+among applications will the greatest value be perceived. 
+ 
+ASIC Design vs. Structured ASIC vs. FPGA 
+Design 
+Rising design and prototyping costs for nanometer design 
+appear to be driving reduced design starts in the 
+semiconductor industry.  With current cost estimates for a 
+complex ASIC/SOC greater than $30M, fewer and fewer 
+products can accommodate the required life-time unit 
+shipments to justify such exorbitant design costs.
+ 
+If this trend continues, will it drive the need for 
+abstraction?including higher-level languages, platformbased design?leading to the adoption of ESL by 
+mainstream designers?   Perhaps it is time to scale back 
+from full custom ASICs and in
+stead aggressively pursue the 
+structured and platform ASIC approaches.  But are 
+structured ASICS on the decline  considering the notable exit 
+of some major companies support this approach?  And will 
+FPGA design ever become cost effective? 
+ 
+Verification Challenge 
+It is now possible to have hundreds of millions of transistors 
+on nanometer ICs, making timely verification impossible 
+with current verification techniques.  This is driving the 
+need for advanced techniques like high-level verification,  
+Copyright is held by the author/owner(s). 
+DAC 2006 , July 24 28, 2006, San Francisco, California, USA. 
+ACM 1-59593-381-6/06/0007. 
+6.1 
+77
+
+assertions and coverage tools.  More specifically, the 
+question needs to be asked why existing testbench tools and 
+languages are failing.  Although some view the verification 
+Language Wars as necessary, will they instead become a 
+war of attrition?  
+ 
+Power is Critical 
+Temperatures of SoC/ASICs are around the hot-plate level 
+due to the exponential rise in leakage current with subnanometer IC structures.  Change s are needed at all levels of 
+IC design to lower power consumption.  For example, new 
+architectures such as multi-c ore processing are minimizing 
+power requirements at the macro level.   At the interconnect 
+level, designers are employing techniques such as reduced 
+operating voltages and lower capacitances.  Then at the 
+process level, new structures such as double-gate FinFETs 
+and strained silicon might be the answer.   
+Will all this be enough to re duce power with nanometer 
+ICs? Or will leakage constraints force power-sensitive 
+applications to stay with older technologies?  
+ 
+Yields are Dropping 
+Manufacturing Yield is dropping significantly in the 
+nanometer nodes.  A whole new set of tools are emerging to 
+address yield issues including RET, OPC and design for 
+manufacturing (DFM).  But this raises the question:  who is 
+responsible for DFM?the designer or the manufacturer?  
+And who should shoulder the cost of adopting DFM 
+technology? 
+ 
+Analog, Mixed Signal 
+As nanometer technology allows more of system design is 
+captured in a single IC, designers are dealing with 
+analog/digital, RF and analog effects in their designs.  
+Incorporating analog into digital designs is driving 
+integrated mixed-signal design approaches.  How broadly 
+will this effect design flows?  Namely, will companies 
+change their methodologies to incorporate true mixed-signal 
+approaches vs. integrating verified analog blocks into digital 
+designs? 
+Analog, mixed signal and RF have driven an increasing 
+share of fabless start-ups, as we ll as designs at established 
+companies. Is this a continuing trend?  
+Larger Industry Questions 
+As the industry moves into the nanometer realm, will it 
+fundamentally change how we do business?  The number of 
+new fabless start-ups has been  relatively stable in recent 
+years, yet some analysts are  predicting a significant decline. 
+Will the number of fabless start-ups increase or decrease in 
+the coming year?  
+IDM's are claiming a significant advantage in the ability to 
+implement new design-for-manufacturing technology. Do 
+they really have an advantage over foundries or is it the 
+other way around?  
+Regionally, where will the growth in semiconductors and 
+electronic systems be the st rongest? Japan semiconductors 
+appear to be in a strong recovery.  Will that continue?   
+Various predictions for the Asian share of the 
+semiconductor market in the next five years will be debated.  
+And what's driving Europe?  Will the spin offs of Infineon 
+Memory and Philips Semiconductor reduce or increase the 
+market share of European companies?   As for innovation, 
+where are the cutting edge innovations coming from?from 
+bigger companies or startups and from what region in the 
+world? 
+ 
+Intriguing EDA Questions 
+Although the semiconductor industry has been growing, the 
+EDA industry has not.  The panelists will offer differing 
+opinions for why this is so.  More importantly, what's the 
+attitude of semiconductor and electronics people toward 
+their EDA suppliers?  
+Will designers ever really adopt a broader set of tools (i.e. 
+more than just synthesis/place & route)?  And who will they 
+get them from?  Perhaps it is time that EDA move away 
+from its traditional focus on leading edge design and create 
+tools for the mainstream. 
+Then there is the influence of clusters on electronics (i.e. 
+Asia/consumer, Europe/wireless, America/computer.)  Is 
+this real?  And if so, will it continue and how it is shaping 
+electronics? 
+Last but not least, there is the ongoing debate about 
+engineering talent:  where is it coming from and is it on the 
+decline or increasing.  Issues th at are fueling this discussion 
+include skill specialization, regional differences and whether 
+there is enough available talent to fill the needed electronics 
+capability. 
+ 
+78
