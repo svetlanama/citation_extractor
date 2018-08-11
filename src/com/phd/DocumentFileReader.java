@@ -5,6 +5,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.FileReader;
 
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDDocumentInformation;
+import org.apache.pdfbox.text.PDFTextStripper;
+//import org.apache.pdfbox.text.PDFTextStripperByArea;
 
 public class DocumentFileReader {
 
@@ -24,11 +28,34 @@ public class DocumentFileReader {
                     listFilesForFolder(fileEntry);
                 } else {
                     System.out.println(fileEntry.getName());
-                    readFile(fileEntry);
+                    //readFile(fileEntry);
+                    readPdfFile(fileEntry);
                 }
             }
         }
         csvBuilder.closeCSV();
+    }
+
+    private void readPdfFile(File inFile) throws IOException {
+        PDDocument document = PDDocument.load(inFile);
+        if (!document.isEncrypted()) {
+            PDDocumentInformation info = document.getDocumentInformation();
+            System.out.println( "\n Page Count= " + document.getNumberOfPages() );
+            System.out.println( "Title= " + info.getTitle() );
+            System.out.println( "Author= " + info.getAuthor() );
+
+            String author = info.getAuthor();
+            String subject = info.getTitle();
+            if (subject.length() > 0){
+                performSearchInGoogleScholar(inFile.getName(), author, subject);
+            }
+
+
+//            PDFTextStripper stripper = new PDFTextStripper();
+//            String text = stripper.getText(document);
+//            System.out.println("Text:" + text);
+        }
+        document.close();
     }
 
     private void readFile(File inFile) {
@@ -49,7 +76,7 @@ public class DocumentFileReader {
 
                 i++;
             }
-           performSearchInGoogleScholar(author, subject);
+           performSearchInGoogleScholar(inFile.getName(), author, subject);
            //performSearchInGoogleScholar("Doug Josephson", "The good, the bad, and the ugly of silicon debug");
 
         } catch (IOException e) {
@@ -57,17 +84,18 @@ public class DocumentFileReader {
         }
     }
 
-    private void performSearchInGoogleScholar(String author, String subject) throws IOException {
+    private void performSearchInGoogleScholar(String filename, String author, String subject) throws IOException {
        GoogleScholar googleScholar = new GoogleScholar();
        System.out.println("\n\n Author: " + author + "\n Subject: " + subject);
-       //String cites = "0";
+
+
        String cites = googleScholar.getRecordsByAuthor(author, subject);
        System.out.println("\n\n Author: " + author + "\n Subject: " + subject  + "\n Cites: " + cites);
 
-        //CSVBuilder csvBuilder = new CSVBuilder();
+
         String authors = author.replace(" "," ");
         System.out.println("authors: " + authors);
-        csvBuilder.buildCSV(cites, authors, subject);
+        csvBuilder.buildCSV(cites, filename, authors, subject);
 
     }
 
