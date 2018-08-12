@@ -4,21 +4,24 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.FileReader;
+import java.util.Random;
+
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 import org.apache.pdfbox.pdmodel.common.PDMetadata;
-import org.apache.pdfbox.text.PDFTextStripper;
-//import org.apache.pdfbox.text.PDFTextStripperByArea;
+
 
 public class DocumentFileReader {
 
     CSVBuilder csvBuilder =null;
 
-    public void listFilesForFolder(final File folder) throws IOException {
+    public void listFilesForFolder(final File folder) throws IOException, InterruptedException {
+
         csvBuilder = new CSVBuilder();
-        csvBuilder.craeteCSV();
+        csvBuilder.createCSV();
+
 
         for (final File fileEntry : folder.listFiles()) {
             System.out.println("fileEntry: " + fileEntry.getName());
@@ -30,16 +33,21 @@ public class DocumentFileReader {
                     listFilesForFolder(fileEntry);
                 } else {
                     System.out.println(fileEntry.getName());
-                    //readFile(fileEntry);
+
+                    Random rand = new Random();
+                    int sec = rand.nextInt(30000) + 10000;
+                    Thread.sleep(sec);
+
                     readPdfFile(fileEntry);
                 }
             }
         }
-        csvBuilder.closeCSV();
+       //csvBuilder.closeCSV();
     }
 
     private void readPdfFile(File inFile) throws IOException {
         PDDocument document = PDDocument.load(inFile);
+
         if (!document.isEncrypted()) {
             PDDocumentInformation info = document.getDocumentInformation();
             PDDocumentCatalog catalog = document.getDocumentCatalog();
@@ -110,10 +118,12 @@ public class DocumentFileReader {
        String cites = googleScholar.getRecordsByAuthor(author, subject);
        System.out.println("\n\n Author: " + author + "\n Subject: " + subject  + "\n Cites: " + cites);
 
-
+       // String cites = "10";
         String authors = author.replace(" "," ");
         System.out.println("authors: " + authors);
         Integer totalCitation = Integer.parseInt(cites);
+
+
         csvBuilder.buildCSV(totalCitation, filename, authors, subject, createdDate);
 
     }

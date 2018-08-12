@@ -6,9 +6,7 @@ import com.sun.tools.javac.util.Name;
 
 import java.io.IOException;
 
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.URLEncoder;
+import java.net.*;
 import java.util.prefs.Preferences;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -27,7 +25,7 @@ import java.util.regex.*;
 
 public class GoogleScholar {
 
-    private int maxConnections = 15;
+    private int maxConnections = 999; //15;
 
     public static class TooManyConnectionsException extends IOException {
         private static final long serialVersionUID = 51944780478954114L;
@@ -39,6 +37,7 @@ public class GoogleScholar {
 
     private static void addHeader(Connection conn) {
         conn.header("User-Agent", "Mozilla");
+        //conn.header("User-Agent", "Safari");
         conn.header("Accept", "text/html,text/plain");
         conn.header("Accept-Language", "en-us,en");
         conn.header("Accept-Encoding", "gzip");
@@ -88,8 +87,8 @@ public class GoogleScholar {
 
 
         Document doc = getDocument(url);
-        //System.out.println("DOC: " + doc);
-        //System.out.println("/n ================");
+        System.out.println("DOC: " + doc);
+        System.out.println("/n ================");
 
         Elements elements = doc.select("div.gs_r");
 
@@ -111,7 +110,7 @@ public class GoogleScholar {
             }
         }
 
-        return "";
+        return "-1";
     }
 
     public Document getDocument(String url) throws IOException {
@@ -141,23 +140,52 @@ public class GoogleScholar {
 //        System.setProperty("http.proxyPort", "1080");
 //        Connection conn = Jsoup.connect(url)
 
-
+         // works
         Connection conn = Jsoup.connect(url);
         addHeader(conn);
         conn.header("Cookie", cookie);
         Document doc = conn.get();
 
-//        Proxy proxy = new Proxy(                                      //
-//                Proxy.Type.HTTP,                                      //
-//                InetSocketAddress.createUnresolved("127.0.0.1", 8080) //
-//        );
 
-//        Document doc = Jsoup //
-//                .connect(url) //
-//                .proxy(proxy) //
+        //additional attempt 0 - not working
+//        Connection conn = Jsoup.connect(url)
 //                .userAgent("Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2") //
-//                .header("Content-Language", "en-US") //
-//                .get();
+//                .header("Content-Language", "en-US");
+//        Document doc = conn.get();
+
+
+        //Proxy attemp 1
+
+        /*
+
+        System.setProperty("http.proxyHost", "127.0.0.1");
+
+        //set HTTP proxy port to 3128
+        System.setProperty("http.proxyPort", "3128");
+
+        Document doc = Jsoup //
+                .connect(url) //
+                .userAgent("Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2") //
+                .header("Content-Language", "en-US") //
+                .get();
+
+*/
+
+//Proxy attemp 2
+//        URL urlConn = new URL(url);
+//        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 8080)); // or whatever your proxy is
+//        HttpURLConnection uc = (HttpURLConnection)urlConn.openConnection(proxy);
+//
+//        uc.connect();
+//
+//        String line = null;
+//        StringBuffer tmp = new StringBuffer();
+//        BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream()));
+//        while ((line = in.readLine()) != null) {
+//            tmp.append(line);
+//        }
+//
+//        Document doc = Jsoup.parse(String.valueOf(tmp));
 
         return doc;
     }

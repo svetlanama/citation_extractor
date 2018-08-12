@@ -6,13 +6,16 @@ public class Main {
 
 
 
-    public static void main(String[] args) throws IOException {
-	// write your code here
+    public static void main(String[] args) throws IOException, InterruptedException {
+
         System.out.println("hello");
 
         DocumentFileReader fr = new DocumentFileReader();
 
-        final File folder = new File("/Users/svitlanamoiseyenko/REPOS/citation_extractor/DAC-PDF-2004-2006");
+        String base = "/var/data";
+        String relative = new File(base).toURI().relativize(new File("input").toURI()).getPath();
+
+        final File folder = new File(relative);
         fr.listFilesForFolder(folder);
     }
 }
