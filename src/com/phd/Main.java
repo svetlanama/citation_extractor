@@ -12,7 +12,7 @@ public class Main {
 
         DocumentFileReader fr = new DocumentFileReader();
 
-        final File folder = new File("/Users/svitlanamoiseyenko/REPOS/citation_extractor/data_pdf");
+        final File folder = new File("/Users/svitlanamoiseyenko/REPOS/citation_extractor/DAC-PDF-2004-2006");
         fr.listFilesForFolder(folder);
     }
 }

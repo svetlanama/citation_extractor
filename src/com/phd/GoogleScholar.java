@@ -6,6 +6,8 @@ import com.sun.tools.javac.util.Name;
 
 import java.io.IOException;
 
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.net.URLEncoder;
 import java.util.prefs.Preferences;
 import java.util.regex.Matcher;
@@ -15,6 +17,8 @@ import org.jsoup.*;
 import org.jsoup.Connection.Response;
 import org.jsoup.nodes.*;
 import org.jsoup.select.*;
+
+import java.net.Proxy;
 
 import java.io.*;
 import java.util.*;
@@ -57,15 +61,26 @@ public class GoogleScholar {
 //        if (!matcher.matches())
 //            throw new IllegalArgumentException("Illegal author name");
 
-        String subj = URLEncoder.encode(subject, "UTF-8");
-        url += "&q=as_subj%3D%22=" + subj;
-        System.out.println("subj: " + subj);
 
-        String aut = URLEncoder.encode(author, "UTF-8");
-        url += "%22+author%3D%22" + aut + "%22&btnG=";
-        System.out.println("aut: " + aut);
+
+        //Build  query
+        if (author.length() > 0) {
+            String subj = URLEncoder.encode(subject, "UTF-8");
+            url += "&q=as_subj%3D%22=" + subj;
+            System.out.println("subj: " + subj);
+
+            String aut = URLEncoder.encode(author, "UTF-8");
+            url += "%22+author%3D%22" + aut + "%22&btnG=";
+        } else {
+            String subj = URLEncoder.encode(subject, "UTF-8");
+            url += "&q=" + subj;
+
+            url += "%22&btnG=";
+        }
+
 
         System.out.println("url: " + url);
+        //return url;
         return getCitesByUrl(url);
     }
 
@@ -73,18 +88,22 @@ public class GoogleScholar {
 
 
         Document doc = getDocument(url);
-        //System.out.println(doc);
+        //System.out.println("DOC: " + doc);
+        //System.out.println("/n ================");
 
         Elements elements = doc.select("div.gs_r");
 
         System.out.println("element size: " + elements.size());
+        if (elements.size() == 0) {
+            return "-1";
+        }
         for (Element element : elements) {
             //System.out.println("element: " + element);
 
             Elements links = element.select(".gs_fl a[href]");
             //System.out.println("links size: " + links.size());
             for (Element link : links) {
-                 if (link.attr("href").contains("cites")){
+                 if (link.attr("href").contains("cites=")){
                      //System.out.println("links: " + link.text());
                      return link.text().replace("Cited by ","");
                  }
@@ -118,11 +137,27 @@ public class GoogleScholar {
             pref.put("cookie", cookie);
         }
 
+//        System.setProperty("http.proxyHost", "192.168.5.1");
+//        System.setProperty("http.proxyPort", "1080");
+//        Connection conn = Jsoup.connect(url)
+
+
         Connection conn = Jsoup.connect(url);
         addHeader(conn);
         conn.header("Cookie", cookie);
-
         Document doc = conn.get();
+
+//        Proxy proxy = new Proxy(                                      //
+//                Proxy.Type.HTTP,                                      //
+//                InetSocketAddress.createUnresolved("127.0.0.1", 8080) //
+//        );
+
+//        Document doc = Jsoup //
+//                .connect(url) //
+//                .proxy(proxy) //
+//                .userAgent("Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2") //
+//                .header("Content-Language", "en-US") //
+//                .get();
 
         return doc;
     }
@@ -130,3 +165,10 @@ public class GoogleScholar {
 
 }
 //  https://scholar.google.com/scholar?start=0&num=2&hl=en&as_sdt=0%2C5&q=as_subj%3D%22The+good%2C+the+bad%2C+and+the+ugly+of+silicon+debug%22+author%3A+%22Doug+Josephson%22&btnG=
+
+//no author
+//https://scholar.google.com.ua/scholar?hl=ru&as_sdt=0%2C5&q=Is+Statistical+Timing+Statistically+Significant%3F&btnG=
+
+
+//error
+//https://scholar.google.com/scholar?start=0&num=1&hl=en&as_sdt=0&q=as_subj%3D%22=Panel%3A+Is+Statistical+Timing+Statistically+Significant%3F%22&btnG=

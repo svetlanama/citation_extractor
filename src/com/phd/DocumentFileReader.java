@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.FileReader;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
+import org.apache.pdfbox.pdmodel.common.PDMetadata;
 import org.apache.pdfbox.text.PDFTextStripper;
 //import org.apache.pdfbox.text.PDFTextStripperByArea;
 
@@ -40,14 +42,30 @@ public class DocumentFileReader {
         PDDocument document = PDDocument.load(inFile);
         if (!document.isEncrypted()) {
             PDDocumentInformation info = document.getDocumentInformation();
+            PDDocumentCatalog catalog = document.getDocumentCatalog();
+            PDMetadata metadata = catalog.getMetadata();
+
+            System.out.println( "\n ======Info ======= \n" + metadata + "\n ============ \n");
             System.out.println( "\n Page Count= " + document.getNumberOfPages() );
             System.out.println( "Title= " + info.getTitle() );
             System.out.println( "Author= " + info.getAuthor() );
+            System.out.println( "Subject=" + info.getSubject() );
+            System.out.println( "Keywords=" + info.getKeywords() );
+            System.out.println( "Creator=" + info.getCreator() );
+            System.out.println( "CreationDate=" + info.getCreationDate().getWeekYear());
+            System.out.println( "getMetadataKeys=" + info.getMetadataKeys() );
 
             String author = info.getAuthor();
-            String subject = info.getTitle();
+            String subject = info.getTitle().trim();
+            Integer createdDate = info.getCreationDate().getWeekYear();
+
+            //Just to remove xome info before title
+            if(subject.contains(": "))  {
+                subject = subject.split(": ")[1];
+            }
+
             if (subject.length() > 0){
-                performSearchInGoogleScholar(inFile.getName(), author, subject);
+                performSearchInGoogleScholar(inFile.getName(), author, subject, createdDate);
             }
 
 
@@ -58,33 +76,33 @@ public class DocumentFileReader {
         document.close();
     }
 
-    private void readFile(File inFile) {
-        try (BufferedReader br = new BufferedReader(new FileReader(inFile))) {
+//    private void readFile(File inFile) {
+//        try (BufferedReader br = new BufferedReader(new FileReader(inFile))) {
+//
+//            String sCurrentLine;
+//            int i = 0;
+//            String subject = "";
+//            String author = "";
+//            while (((sCurrentLine = br.readLine()) != null) && (i<2))  {
+//                //System.out.println(sCurrentLine);
+//                System.out.println("i: " + i);
+//                if (i == 0) {
+//                    subject = sCurrentLine;
+//                } else {
+//                    author = sCurrentLine;
+//                }
+//
+//                i++;
+//            }
+//           performSearchInGoogleScholar(inFile.getName(), author, subject);
+//           //performSearchInGoogleScholar("Doug Josephson", "The good, the bad, and the ugly of silicon debug");
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
-            String sCurrentLine;
-            int i = 0;
-            String subject = "";
-            String author = "";
-            while (((sCurrentLine = br.readLine()) != null) && (i<2))  {
-                //System.out.println(sCurrentLine);
-                System.out.println("i: " + i);
-                if (i == 0) {
-                    subject = sCurrentLine;
-                } else {
-                    author = sCurrentLine;
-                }
-
-                i++;
-            }
-           performSearchInGoogleScholar(inFile.getName(), author, subject);
-           //performSearchInGoogleScholar("Doug Josephson", "The good, the bad, and the ugly of silicon debug");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void performSearchInGoogleScholar(String filename, String author, String subject) throws IOException {
+    private void performSearchInGoogleScholar(String filename, String author, String subject, Integer createdDate) throws IOException {
        GoogleScholar googleScholar = new GoogleScholar();
        System.out.println("\n\n Author: " + author + "\n Subject: " + subject);
 
@@ -95,7 +113,8 @@ public class DocumentFileReader {
 
         String authors = author.replace(" "," ");
         System.out.println("authors: " + authors);
-        csvBuilder.buildCSV(cites, filename, authors, subject);
+        Integer totalCitation = Integer.parseInt(cites);
+        csvBuilder.buildCSV(totalCitation, filename, authors, subject, createdDate);
 
     }
 

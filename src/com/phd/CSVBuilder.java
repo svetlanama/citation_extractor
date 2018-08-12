@@ -9,13 +9,15 @@ public class CSVBuilder {
 
     public void craeteCSV() throws IOException {
         writer = new FileWriter("/Users/svitlanamoiseyenko/REPOS/citation_extractor/citation.csv");
-        CSVUtils.writeLine(writer, Arrays.asList("No Citations", "paper file name", "author","subject"));
+        CSVUtils.writeLine(writer, Arrays.asList("Total Citation", "No Citations", "paper file name", "author", "subject", "createdDate"));
 //        writer.flush();
 //        writer.close();
     }
-   public void buildCSV(String citation, String filename, String author, String subject) throws IOException {
+   public void buildCSV(Integer totalCitation, String filename, String author, String subject, Integer createdDate) throws IOException {
 
-        CSVUtils.writeLine(writer, Arrays.asList(citation, filename, author, subject),',', '"');
+
+        Integer noCitations = (totalCitation / (2018 - createdDate - 1));
+        CSVUtils.writeLine(writer, Arrays.asList(totalCitation.toString(), noCitations.toString(), filename, author, subject, createdDate.toString()),',', '"');
 
         //custom separator + quote
 //        CSVUtils.writeLine(writer, Arrays.asList("aaa", "bb,b", "cc,c"), ',', '"');
