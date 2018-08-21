@@ -2,6 +2,7 @@ package com.phd;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.Arrays;
 
 public class CSVBuilder {
@@ -26,18 +27,12 @@ public class CSVBuilder {
 
         writer = new FileWriter(relative, true);
 
-        Integer noCitations = (totalCitation / (2018 - createdDate - 1));
-        CSVUtils.writeLine(writer, Arrays.asList(totalCitation.toString(), noCitations.toString(), filename, author, subject, createdDate.toString()),',', '"');
+        double noCitations = ((double)totalCitation / (double)(2018 - createdDate - 1));
+        System.out.println("\n\n num noCitations: " + noCitations);
+        String strNoCitations = String.format("%.4f", noCitations);
+        System.out.println("\n\n str noCitations: " + strNoCitations);
 
-        //custom separator + quote
-//        CSVUtils.writeLine(writer, Arrays.asList("aaa", "bb,b", "cc,c"), ',', '"');
-//
-//        //custom separator + quote
-//        CSVUtils.writeLine(writer, Arrays.asList("aaa", "bbb", "cc,c"), '|', '\'');
-//
-//        //double-quotes
-//        CSVUtils.writeLine(writer, Arrays.asList("aaa", "bbb", "cc\"c"));
-
+        CSVUtils.writeLine(writer, Arrays.asList(totalCitation.toString(), strNoCitations, filename, author, subject, createdDate.toString()),',', '"');
 
         writer.flush();
         writer.close();
