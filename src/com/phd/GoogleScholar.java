@@ -1,14 +1,12 @@
 package com.phd;
 
-import com.sun.prism.impl.Disposer;
-import com.sun.tools.javac.util.Name;
 
-
+import java.io.BufferedReader;
 import java.io.IOException;
 
+import java.io.InputStreamReader;
 import java.net.*;
 import java.util.prefs.Preferences;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.jsoup.*;
@@ -16,16 +14,11 @@ import org.jsoup.Connection.Response;
 import org.jsoup.nodes.*;
 import org.jsoup.select.*;
 
-import java.net.Proxy;
-
-import java.io.*;
 import java.util.*;
-import java.util.prefs.*;
-import java.util.regex.*;
 
 public class GoogleScholar {
 
-    private int maxConnections = 999; //15;
+    private int maxConnections = 999999; //15;
 
     public static class TooManyConnectionsException extends IOException {
         private static final long serialVersionUID = 51944780478954114L;
@@ -56,12 +49,6 @@ public class GoogleScholar {
             throws IOException {
         String url = "http://scholar.google.com/scholar?start=0&num=1&hl=en&as_sdt=0";
 
-//        Matcher matcher = authorPattern.matcher(author);
-//        if (!matcher.matches())
-//            throw new IllegalArgumentException("Illegal author name");
-
-
-
         //Build  query
         if (author.length() > 0) {
             String subj = URLEncoder.encode(subject, "UTF-8");
@@ -87,6 +74,10 @@ public class GoogleScholar {
 
 
         Document doc = getDocument(url);
+        if (doc == null) {
+            System.out.println("document reading error: " + url);
+            return "-1";
+        }
         System.out.println("DOC: " + doc);
         System.out.println("/n ================");
 
@@ -136,44 +127,51 @@ public class GoogleScholar {
             pref.put("cookie", cookie);
         }
 
-//        System.setProperty("http.proxyHost", "192.168.5.1");
-//        System.setProperty("http.proxyPort", "1080");
-//        Connection conn = Jsoup.connect(url)
+        List<CPProxy> res = ProxyUtil.CPProxyList;
+        System.out.println("loading.......RES: \n" + res);
+
+        Random rand = new Random();
+        int index = rand.nextInt(res.size()-1) + 0;
+        System.out.println("random CPProxy index:" + index);
+        CPProxy cpProxy = res.get(index);
+
+
+        if (cpProxy != null) {
+            System.out.println("using CPProxy: \n");
+            System.out.println("address:" + cpProxy.adress);
+            System.out.println("port:" + cpProxy.port);
+
+            System.setProperty("https.proxyHost", cpProxy.adress);
+            System.setProperty("https.proxyPort", cpProxy.port);
+            // System.setProperty("http.defaultConnectTimeout", "10000");
+            // System.setProperty("http.defaultReadTimeout", "10000");
+        }
 
          // works
         Connection conn = Jsoup.connect(url);
         addHeader(conn);
+        //conn.timeout(1000*10*1);
         conn.header("Cookie", cookie);
+
         Document doc = conn.get();
 
 
-        //additional attempt 0 - not working
-//        Connection conn = Jsoup.connect(url)
-//                .userAgent("Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2") //
-//                .header("Content-Language", "en-US");
-//        Document doc = conn.get();
+
+        /////////////
+
+//        Document doc = null;
+//        try {
+//            doc = conn.get();
+//            return doc;
+//        } catch (Exception e) {
+//            //log error
+//            System.out.println("connection error:" + e.getLocalizedMessage());
+//        }
 
 
-        //Proxy attemp 1
-
-        /*
-
-        System.setProperty("http.proxyHost", "127.0.0.1");
-
-        //set HTTP proxy port to 3128
-        System.setProperty("http.proxyPort", "3128");
-
-        Document doc = Jsoup //
-                .connect(url) //
-                .userAgent("Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2") //
-                .header("Content-Language", "en-US") //
-                .get();
-
-*/
-
-//Proxy attemp 2
+//CPProxy attemp 2
 //        URL urlConn = new URL(url);
-//        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("127.0.0.1", 8080)); // or whatever your proxy is
+//        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("78.40.136.195", 8080)); // or whatever your CPProxy is
 //        HttpURLConnection uc = (HttpURLConnection)urlConn.openConnection(proxy);
 //
 //        uc.connect();

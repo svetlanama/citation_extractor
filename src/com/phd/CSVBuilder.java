@@ -3,12 +3,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.time.Year;
 import java.util.Arrays;
 
 public class CSVBuilder {
 
    FileWriter writer = null;
-   String relative = new File("/var/data").toURI().relativize(new File("output/citation_tmp.csv").toURI()).getPath();
+   String relative = new File("/var/data").toURI().relativize(new File("output/citation_2004.csv").toURI()).getPath();
 
 
     public void createCSV() throws IOException {
@@ -27,7 +28,9 @@ public class CSVBuilder {
 
         writer = new FileWriter(relative, true);
 
-        double noCitations = ((double)totalCitation / (double)(2018 - createdDate - 1));
+        int currentYear = Year.now().getValue();
+        System.out.println("\n\n currentYear: " + currentYear);
+        double noCitations = ((double)totalCitation / (double)(currentYear - createdDate - 1));
         System.out.println("\n\n num noCitations: " + noCitations);
         String strNoCitations = String.format("%.4f", noCitations);
         System.out.println("\n\n str noCitations: " + strNoCitations);

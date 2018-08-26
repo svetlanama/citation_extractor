@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="553e6fc0-445c-43b3-ba5d-18b0afa412e9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0484.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0834.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/citation_tmp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/output/citation_tmp.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/CSVBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/CSVBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/DocumentFileReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/DocumentFileReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/citation_2004.csv" beforeDir="false" afterPath="$PROJECT_DIR$/output/citation_2004.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/citation_tmp.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/phd/CSVBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/phd/CSVBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/phd/DocumentFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/phd/DocumentFileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/phd/GoogleScholar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/phd/GoogleScholar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/phd/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/phd/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,35 +24,37 @@
     <session id="1354225758">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2346" />
+          <entry key="dummy" value="24" />
+          <entry key="java" value="3145" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2346" />
+          <entry key="JAVA" value="3145" />
+          <entry key="PLAIN_TEXT" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="DEPENDENCIES" value="1" />
           <entry key="class" value="1" />
-          <entry key="java" value="6" />
+          <entry key="java" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="6" />
+          <entry key="JAVA" value="11" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
@@ -57,8 +65,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/phd/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="176">
+              <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/phd/proxyCallback.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/phd/ProxyUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="26" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -69,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/phd/DocumentFileReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="114" column="79" lean-forward="true" selection-start-line="114" selection-start-column="6" selection-end-line="114" selection-end-column="79" />
+            <state relative-caret-position="431">
+              <caret line="92" column="36" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/phd/CSVBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+            <state relative-caret-position="225">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,8 +122,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/phd/CSVUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="42" column="13" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+            <state relative-caret-position="135">
+              <caret line="9" column="18" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/phd/GoogleScholar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-274">
+              <caret line="143" column="14" selection-start-line="143" selection-start-column="14" selection-end-line="144" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,10 +144,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/phd/GoogleScholar.java">
+        <entry file="file://$PROJECT_DIR$/src/com/phd/CPProxy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-970">
-              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+            <state relative-caret-position="30">
+              <caret line="2" column="20" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/phd/ApiProxy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,12 +175,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>citati</find>
-      <find>cite</find>
-      <find>cites</find>
-      <find>75</find>
-      <find>cites:</find>
-      <find>gs_rt</find>
       <find>element:</find>
       <find>gs_r</find>
       <find>url:</find>
@@ -139,17 +183,28 @@
       <find>cited</find>
       <find>CITATION</find>
       <find>Text:</find>
-      <find>Cites:</find>
       <find>psu.edu</find>
       <find>Cited by</find>
       <find>Panel: Is Statistical Timing Statistically Significant?</find>
       <find>publi</find>
       <find>2004</find>
-      <find>getRecordsByAuthor</find>
       <find>url</find>
       <find>serialVersionUID</find>
       <find>An Algorithm for Converting Floating-Point Computations to Fixed-Point in MATLAB based FPGA design</find>
       <find>element size:</find>
+      <find>getDocument</find>
+      <find>random proxy index:</find>
+      <find>loading.......:</find>
+      <find>2018</find>
+      <find>currentYear</find>
+      <find>time</find>
+      <find>getRecordsByAuthor</find>
+      <find>rand</find>
+      <find>random proxy</find>
+      <find>Cites:</find>
+      <find>document reading error:</find>
+      <find>connection error:</find>
+      <find>using proxy:</find>
     </findStrings>
     <dirStrings>
       <dir>$USER_HOME$/Downloads/pdfbox-app-2.0.11.jar</dir>
@@ -162,16 +217,21 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/phd/FileReader.java" />
-        <option value="$PROJECT_DIR$/src/com/phd/Main.java" />
         <option value="$PROJECT_DIR$/src/com/phd/CSVUtils.java" />
-        <option value="$PROJECT_DIR$/src/com/phd/DocumentFileReader.java" />
-        <option value="$PROJECT_DIR$/src/com/phd/GoogleScholar.java" />
+        <option value="$PROJECT_DIR$/src/com/phd/Proxy.java" />
+        <option value="$PROJECT_DIR$/src/com/phd/ApiProxy.java" />
         <option value="$PROJECT_DIR$/src/com/phd/CSVBuilder.java" />
+        <option value="$PROJECT_DIR$/src/com/phd/proxyCallback.java" />
+        <option value="$PROJECT_DIR$/src/com/phd/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/phd/ProxyUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/phd/DocumentFileReader.java" />
+        <option value="$PROJECT_DIR$/src/com/phd/CPProxy.java" />
+        <option value="$PROJECT_DIR$/src/com/phd/GoogleScholar.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="38" />
     <option name="width" value="1440" />
     <option name="height" value="825" />
   </component>
@@ -183,6 +243,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -231,12 +292,11 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534109218686" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535326733361" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -285,10 +345,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="825" extended-state="0" />
+    <frame x="0" y="31" width="1440" height="825" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26037195" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -296,8 +356,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.50613916" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3287858" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29740793" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -305,7 +365,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.3287858" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.30695772" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -358,20 +418,27 @@
     <entry file="jar://$USER_HOME$/Downloads/pdfbox-app-2.0.11.jar!/META-INF/DEPENDENCIES">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/phd/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/com/phd/CSVUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="135">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/phd/GoogleScholar.java">
+    <entry file="file://$PROJECT_DIR$/src/com/phd/proxyCallback.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-970">
-          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+        <state relative-caret-position="90">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/phd/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -380,18 +447,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/phd/DocumentFileReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="114" column="79" lean-forward="true" selection-start-line="114" selection-start-column="6" selection-end-line="114" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/phd/CSVUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="42" column="13" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        <state relative-caret-position="431">
+          <caret line="92" column="36" selection-start-line="92" selection-start-column="36" selection-end-line="92" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -400,8 +457,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/phd/CSVBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/phd/CPProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/phd/ApiProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/phd/ProxyUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/phd/GoogleScholar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-274">
+          <caret line="143" column="14" selection-start-line="143" selection-start-column="14" selection-end-line="144" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

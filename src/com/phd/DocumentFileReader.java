@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.FileReader;
+import java.util.List;
 import java.util.Random;
 
 
@@ -34,9 +35,9 @@ public class DocumentFileReader {
                 } else {
                     System.out.println(fileEntry.getName());
 
-                    Random rand = new Random();
-                    int sec = rand.nextInt(30000) + 10000;
-                    Thread.sleep(sec);
+//                    Random rand = new Random();
+//                    int sec = rand.nextInt(30000) + 10000;
+//                    Thread.sleep(sec);
 
                     readPdfFile(fileEntry);
                 }
@@ -84,32 +85,6 @@ public class DocumentFileReader {
         document.close();
     }
 
-//    private void readFile(File inFile) {
-//        try (BufferedReader br = new BufferedReader(new FileReader(inFile))) {
-//
-//            String sCurrentLine;
-//            int i = 0;
-//            String subject = "";
-//            String author = "";
-//            while (((sCurrentLine = br.readLine()) != null) && (i<2))  {
-//                //System.out.println(sCurrentLine);
-//                System.out.println("i: " + i);
-//                if (i == 0) {
-//                    subject = sCurrentLine;
-//                } else {
-//                    author = sCurrentLine;
-//                }
-//
-//                i++;
-//            }
-//           performSearchInGoogleScholar(inFile.getName(), author, subject);
-//           //performSearchInGoogleScholar("Doug Josephson", "The good, the bad, and the ugly of silicon debug");
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
     private void performSearchInGoogleScholar(String filename, String author, String subject, Integer createdDate) throws IOException {
        GoogleScholar googleScholar = new GoogleScholar();
        System.out.println("\n\n Author: " + author + "\n Subject: " + subject);
@@ -123,9 +98,7 @@ public class DocumentFileReader {
         System.out.println("authors: " + authors);
         Integer totalCitation = Integer.parseInt(cites);
 
-
         csvBuilder.buildCSV(totalCitation, filename, authors, subject, createdDate);
-
     }
 
 }
