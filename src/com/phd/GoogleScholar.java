@@ -136,37 +136,40 @@ public class GoogleScholar {
         CPProxy cpProxy = res.get(index);
 
 
-        if (cpProxy != null) {
-            System.out.println("using CPProxy: \n");
-            System.out.println("address:" + cpProxy.adress);
-            System.out.println("port:" + cpProxy.port);
+//        if (cpProxy != null) {
+//            System.out.println("using CPProxy: \n");
+//            System.out.println("address:" + cpProxy.adress);
+//            System.out.println("port:" + cpProxy.port);
+//
+//            System.setProperty("https.proxyHost", cpProxy.adress);
+//            System.setProperty("https.proxyPort", cpProxy.port);
+//            // System.setProperty("http.defaultConnectTimeout", "10000");
+//            // System.setProperty("http.defaultReadTimeout", "10000");
+//        }
 
-            System.setProperty("https.proxyHost", cpProxy.adress);
-            System.setProperty("https.proxyPort", cpProxy.port);
-            // System.setProperty("http.defaultConnectTimeout", "10000");
-            // System.setProperty("http.defaultReadTimeout", "10000");
-        }
+//         // works
+//        Connection conn = Jsoup.connect(url);
+//        addHeader(conn);
+//        //conn.timeout(1000*10*1);
+//        conn.header("Cookie", cookie);
+//
+//        Document doc = conn.get();
 
-         // works
-        Connection conn = Jsoup.connect(url);
+
+        Connection conn = Jsoup.connect(url).proxy(cpProxy.adress,Integer.valueOf(cpProxy.port));
         addHeader(conn);
-        //conn.timeout(1000*10*1);
         conn.header("Cookie", cookie);
-
-        Document doc = conn.get();
-
-
-
+        //Document doc = conn.get();
         /////////////
 
-//        Document doc = null;
-//        try {
-//            doc = conn.get();
-//            return doc;
-//        } catch (Exception e) {
-//            //log error
-//            System.out.println("connection error:" + e.getLocalizedMessage());
-//        }
+        Document doc = null;
+        try {
+            doc = conn.get();
+            return doc;
+        } catch (Exception e) {
+            //log error
+            System.out.println("connection error:" + e.getLocalizedMessage());
+        }
 
 
 //CPProxy attemp 2
