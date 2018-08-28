@@ -45,7 +45,7 @@ public class GoogleScholar {
 
     private static Pattern authorPattern = Pattern.compile("[a-zA-Z ]*");
 
-    public String getRecordsByAuthor(String author, String subject)
+    public Item getRecordsByAuthor(String author, String subject)
             throws IOException {
         String url = "http://scholar.google.com/scholar?start=0&num=1&hl=en&as_sdt=0";
 
@@ -70,13 +70,18 @@ public class GoogleScholar {
         return getCitesByUrl(url);
     }
 
-    public String getCitesByUrl(String url) throws IOException {
+    public Item getCitesByUrl(String url) throws IOException {
 
+        Item item = new Item();
+        item.url = url;
+        item.errorMessage = "";
 
         Document doc = getDocument(url);
         if (doc == null) {
             System.out.println("document reading error: " + url);
-            return "-1";
+            item.citationCount = "-1";
+            item.errorMessage = "Document reading error";
+            return item;
         }
         System.out.println("DOC: " + doc);
         System.out.println("/n ================");
@@ -85,7 +90,9 @@ public class GoogleScholar {
 
         System.out.println("element size: " + elements.size());
         if (elements.size() == 0) {
-            return "-1";
+            item.citationCount = "-1";
+            item.errorMessage = "Document elements.size() == 0";
+            return item;
         }
         for (Element element : elements) {
             //System.out.println("element: " + element);
@@ -95,13 +102,16 @@ public class GoogleScholar {
             for (Element link : links) {
                  if (link.attr("href").contains("cites=")){
                      //System.out.println("links: " + link.text());
-                     return link.text().replace("Cited by ","");
+                     item.citationCount = link.text().replace("Cited by ","");
+                     return item;
                  }
 
             }
         }
 
-        return "-1";
+        item.citationCount = "-1";
+        item.errorMessage = "Cannot found cites= element";
+        return item;
     }
 
     public Document getDocument(String url) throws IOException {

@@ -35,9 +35,9 @@ public class DocumentFileReader {
                 } else {
                     System.out.println(fileEntry.getName());
 
-//                    Random rand = new Random();
-//                    int sec = rand.nextInt(30000) + 10000;
-//                    Thread.sleep(sec);
+                    Random rand = new Random();
+                    int sec = rand.nextInt(30000) + 10000;
+                    Thread.sleep(sec);
 
                     readPdfFile(fileEntry);
                 }
@@ -90,15 +90,15 @@ public class DocumentFileReader {
        System.out.println("\n\n Author: " + author + "\n Subject: " + subject);
 
 
-       String cites = googleScholar.getRecordsByAuthor(author, subject);
-       System.out.println("\n\n Author: " + author + "\n Subject: " + subject  + "\n Cites: " + cites);
+       Item item = googleScholar.getRecordsByAuthor(author, subject);
+       System.out.println("\n\n Author: " + author + "\n Subject: " + subject  + "\n Cites: " + item.citationCount);
 
        // String cites = "10";
         String authors = author.replace(" "," ");
         System.out.println("authors: " + authors);
-        Integer totalCitation = Integer.parseInt(cites);
+        //Integer totalCitation = Integer.parseInt(cites);
 
-        csvBuilder.buildCSV(totalCitation, filename, authors, subject, createdDate);
+        csvBuilder.buildCSV(item, filename, authors, subject, createdDate);
     }
 
 }

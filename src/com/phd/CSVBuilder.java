@@ -16,15 +16,15 @@ public class CSVBuilder {
 
 
         writer = new FileWriter(relative);
-        CSVUtils.writeLine(writer, Arrays.asList("Total Citation", "No Citations", "paper file name", "author", "subject", "createdDate"));
+        CSVUtils.writeLine(writer, Arrays.asList("Total Citation", "No Citations", "paper file name", "author", "subject", "createdDate", "url", "error message"));
 
         writer.flush();
         writer.close();
     }
 
-   public void buildCSV(Integer totalCitation, String filename, String author, String subject, Integer createdDate) throws IOException {
+   public void buildCSV(Item item, String filename, String author, String subject, Integer createdDate) throws IOException {
 
-
+       Integer totalCitation = Integer.parseInt(item.citationCount);
 
         writer = new FileWriter(relative, true);
 
@@ -35,7 +35,7 @@ public class CSVBuilder {
         String strNoCitations = String.format("%.4f", noCitations);
         System.out.println("\n\n str noCitations: " + strNoCitations);
 
-        CSVUtils.writeLine(writer, Arrays.asList(totalCitation.toString(), strNoCitations, filename, author, subject, createdDate.toString()),',', '"');
+        CSVUtils.writeLine(writer, Arrays.asList(totalCitation.toString(), strNoCitations, filename, author, subject, createdDate.toString(), item.url, item.errorMessage),',', '"');
 
         writer.flush();
         writer.close();
