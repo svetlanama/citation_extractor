@@ -2,118 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="553e6fc0-445c-43b3-ba5d-18b0afa412e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/output/citation_all.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/phd/FileUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/phd/RandomUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/phd/TaskManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0472.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0478.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0484.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0488.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0492.PDF" beforeDir="false" afterPath="$PROJECT_DIR$/done/DAC-2004-10(06)-0492.PDF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0498.PDF" beforeDir="false" afterPath="$PROJECT_DIR$/done/DAC-2004-10(06)-0498.PDF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0504.PDF" beforeDir="false" afterPath="$PROJECT_DIR$/done/DAC-2004-10(06)-0504.PDF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0510.PDF" beforeDir="false" afterPath="$PROJECT_DIR$/done/DAC-2004-10(06)-0510.PDF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0514.PDF" beforeDir="false" afterPath="$PROJECT_DIR$/done/DAC-2004-10(06)-0514.PDF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0518.PDF" beforeDir="false" afterPath="$PROJECT_DIR$/done/DAC-2004-10(06)-0518.PDF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0524.PDF" beforeDir="false" afterPath="$PROJECT_DIR$/done/DAC-2004-10(06)-0524.PDF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0530.PDF" beforeDir="false" afterPath="$PROJECT_DIR$/done/DAC-2004-10(06)-0530.PDF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0535.PDF" beforeDir="false" afterPath="$PROJECT_DIR$/done/DAC-2004-10(06)-0535.PDF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0539.PDF" beforeDir="false" afterPath="$PROJECT_DIR$/done/DAC-2004-10(06)-0539.PDF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0543.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0544.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0550.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0556.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0562.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(06)-0566.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0570.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0576.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0582.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0588.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0592.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0596.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0602.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0608.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0614.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0618.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0622.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0629.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0633.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0634.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0640.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0646.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0652.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0658.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0664.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0670.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0673.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0678.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0681.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0686.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0692.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0698.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0699.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0705.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0711.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0717.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0723.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0729.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0735.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0741.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0747.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0753.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0761.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0767.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0773.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0779.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0783.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0788.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0794.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0800.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0806.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0810.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0814.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0820.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0826.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0830.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0834.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0838.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0842.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0848.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0854.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0860.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0864.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0868.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0874.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(09)-0878.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0884.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0888.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0894.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0900.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0904.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0908.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0914.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0920.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0924.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0928.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0934.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0940.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0944.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0948.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0954.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0960.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/CSVBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/CSVBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/DocumentFileReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/DocumentFileReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/citation1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy/get.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/phd/ApiProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/phd/ApiProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/citation_all.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/phd/CSVBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/phd/CSVBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/phd/DocumentFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/phd/DocumentFileReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/phd/GoogleScholar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/phd/GoogleScholar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/phd/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/phd/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/phd/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/phd/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -138,12 +28,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="24" />
-          <entry key="java" value="4321" />
+          <entry key="java" value="4326" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4321" />
+          <entry key="JAVA" value="4326" />
           <entry key="PLAIN_TEXT" value="24" />
         </counts>
       </usages-collector>
@@ -177,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/phd/TaskManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="570">
+              <caret line="38" column="48" lean-forward="true" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#235#236#0" expanded="true" />
@@ -238,11 +128,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/phd/CSVBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+            <state relative-caret-position="93">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#311#312#0" expanded="true" />
@@ -360,8 +250,8 @@
         <option value="$PROJECT_DIR$/src/com/phd/RandomUtil.java" />
         <option value="$PROJECT_DIR$/src/com/phd/Main.java" />
         <option value="$PROJECT_DIR$/src/com/phd/DocumentFileReader.java" />
-        <option value="$PROJECT_DIR$/src/com/phd/CSVBuilder.java" />
         <option value="$PROJECT_DIR$/src/com/phd/TaskManager.java" />
+        <option value="$PROJECT_DIR$/src/com/phd/CSVBuilder.java" />
       </list>
     </option>
   </component>
@@ -415,7 +305,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536205667454" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536205750652" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -625,18 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/phd/CSVBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
-            <element signature="e#342#343#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/phd/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
@@ -659,14 +537,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/phd/TaskManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="570">
+          <caret line="38" column="48" lean-forward="true" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#235#236#0" expanded="true" />
             <element signature="e#266#267#0" expanded="true" />
             <element signature="e#1052#1445#0" expanded="true" />
             <element signature="e#1444#1445#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/phd/CSVBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#311#312#0" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -14,7 +14,7 @@ public class CSVBuilder {
     }
 
    FileWriter writer = null;
-   String pathCSV = new File("/var/data").toURI().relativize(new File("output/citation_all.csv").toURI()).getPath();
+   String pathCSV = new File("/var/data").toURI().relativize(new File("output/citation_final.csv").toURI()).getPath();
 
     public void createCSV() throws IOException {
 
