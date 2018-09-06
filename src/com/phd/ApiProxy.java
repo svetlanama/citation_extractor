@@ -32,29 +32,24 @@ public class ApiProxy {
             String output;
             System.out.println("Output from Server .... \n");
 
-
             while ((output = br.readLine()) != null) {
                 CPProxy CPProxy = new CPProxy();
 
                 CPProxy.adress = output.split(":")[0];
                 CPProxy.port = output.split(":")[1].split("#")[0];
-               // System.out.println("adress:" + CPProxy.adress);
-               // System.out.println("port:" + CPProxy.port);
+                // System.out.println("adress:" + CPProxy.adress);
+                // System.out.println("port:" + CPProxy.port);
+
                 list.add(CPProxy);
-               // System.out.println(output);
+                // System.out.println(output);
             }
 
             conn.disconnect();
 
-
         } catch (MalformedURLException e) {
-
             e.printStackTrace();
-
         } catch (IOException e) {
-
             e.printStackTrace();
-
         }
 
         return list;

@@ -79,7 +79,7 @@ public class GoogleScholar {
         Document doc = getDocument(url);
         if (doc == null) {
             System.out.println("document reading error: " + url);
-            item.citationCount = "-1";
+            item.citationCount = -1;
             item.errorMessage = "Document reading error";
             return item;
         }
@@ -90,7 +90,7 @@ public class GoogleScholar {
 
         System.out.println("element size: " + elements.size());
         if (elements.size() == 0) {
-            item.citationCount = "-1";
+            item.citationCount = -1;
             item.errorMessage = "Document elements.size() == 0";
             return item;
         }
@@ -102,14 +102,14 @@ public class GoogleScholar {
             for (Element link : links) {
                  if (link.attr("href").contains("cites=")){
                      //System.out.println("links: " + link.text());
-                     item.citationCount = link.text().replace("Cited by ","");
+                     item.citationCount = Integer.parseInt(link.text().replace("Cited by ",""));
                      return item;
                  }
 
             }
         }
 
-        item.citationCount = "-1";
+        item.citationCount = -1;
         item.errorMessage = "Cannot found cites= element";
         return item;
     }
@@ -140,8 +140,10 @@ public class GoogleScholar {
         List<CPProxy> res = ProxyUtil.CPProxyList;
         System.out.println("loading.......RES: \n" + res);
 
-        Random rand = new Random();
-        int index = rand.nextInt(res.size()-1) + 0;
+       Integer index = RandomUtil.getInstance().generateRandom(res.size()-1);
+
+//        Random rand = new Random();
+//        int index = rand.nextInt(res.size()-1) + 0;
         System.out.println("random CPProxy index:" + index);
         CPProxy cpProxy = res.get(index);
 
@@ -170,7 +172,7 @@ public class GoogleScholar {
         addHeader(conn);
         conn.header("Cookie", cookie);
         //Document doc = conn.get();
-        /////////////
+
 
         Document doc = null;
         try {

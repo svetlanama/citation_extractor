@@ -3,33 +3,25 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
-
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class Main {
 
 
+    private static void generateProxyListAndStart(DocumentFileReader fr,  String relative) throws IOException, InterruptedException {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-
-        System.out.println("hello");
-
-        DocumentFileReader fr = new DocumentFileReader();
-
-        String base = "/var/data";
-        String relative = new File(base).toURI().relativize(new File("input").toURI()).getPath();
-
-
-
-       // ProxyUtil poxyUtil = new ProxyUtil();
         ProxyUtil.generateProxyList(new proxyCallback(){
             @Override
             public void onSuccess() throws IOException, InterruptedException {
                 // no errors
                 System.out.println("Done");
+                //clear all existed random numbers
+                RandomUtil.getInstance().clearExistedRandomList();
+
                 final File folder = new File(relative);
                 fr.listFilesForFolder(folder);
-
             }
 
             @Override
@@ -39,20 +31,15 @@ public class Main {
             }
         });
 
-       // System.out.println("....poxyUtil: " + ProxyUtil.CPProxyList);
+    }
 
+    public static void main(String[] args) throws IOException, InterruptedException {
 
+        DocumentFileReader fr = new DocumentFileReader();
+        generateProxyListAndStart(fr, FileUtil.pathInput);
 
+        CSVBuilder.getInstance().createCSV();
 
-
-//
-//
-//        ApiProxy apiProxy = new ApiProxy();
-//        List<CPProxy> res = apiProxy.getProxyList();
-//        System.out.println("res: " + res);
-
-//        String relativeProxy = new File(base).toURI().relativize(new File("proxy").toURI()).getPath();
-//        final File folderProxy = new File(relativeProxy);
-        //fr.readProxyList(folderProxy);
+        TaskManager.getInstance().start();
     }
 }

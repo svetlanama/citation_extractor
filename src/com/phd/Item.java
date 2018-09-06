@@ -2,7 +2,7 @@ package com.phd;
 
 public class Item {
 
-    String citationCount;
+    Integer citationCount;
     String url;
     String errorMessage;
 

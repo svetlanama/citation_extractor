@@ -16,12 +16,9 @@ import org.apache.pdfbox.pdmodel.common.PDMetadata;
 
 public class DocumentFileReader {
 
-    CSVBuilder csvBuilder =null;
+
 
     public void listFilesForFolder(final File folder) throws IOException, InterruptedException {
-
-        csvBuilder = new CSVBuilder();
-        csvBuilder.createCSV();
 
 
         for (final File fileEntry : folder.listFiles()) {
@@ -36,14 +33,15 @@ public class DocumentFileReader {
                     System.out.println(fileEntry.getName());
 
                     Random rand = new Random();
-                    int sec = rand.nextInt(30000) + 10000;
+                    int sec = rand.nextInt(50000) + 30000;
                     Thread.sleep(sec);
 
                     readPdfFile(fileEntry);
                 }
             }
         }
-       //csvBuilder.closeCSV();
+
+        TaskManager.getInstance().stop();
     }
 
     private void readPdfFile(File inFile) throws IOException {
@@ -76,11 +74,6 @@ public class DocumentFileReader {
             if (subject.length() > 0){
                 performSearchInGoogleScholar(inFile.getName(), author, subject, createdDate);
             }
-
-
-//            PDFTextStripper stripper = new PDFTextStripper();
-//            String text = stripper.getText(document);
-//            System.out.println("Text:" + text);
         }
         document.close();
     }
@@ -98,7 +91,12 @@ public class DocumentFileReader {
         System.out.println("authors: " + authors);
         //Integer totalCitation = Integer.parseInt(cites);
 
-        csvBuilder.buildCSV(item, filename, authors, subject, createdDate);
+
+        // If everything is fine add to csv and move file to done
+        if(item.citationCount > -1) {
+            CSVBuilder.getInstance().buildCSV(item, filename, authors, subject, createdDate);
+            FileUtil.moveToDone(filename);
+        }
     }
 
 }
