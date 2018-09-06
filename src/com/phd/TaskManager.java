@@ -36,7 +36,7 @@ public class TaskManager {
 
     void start() {
 
-        int MINUTES = 1; // The delay in minutes
+        int MINUTES = 2; // The delay in minutes
 
         timer.schedule(new TimerTask() {
             @Override
