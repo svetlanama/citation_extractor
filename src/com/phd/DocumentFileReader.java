@@ -84,10 +84,15 @@ public class DocumentFileReader {
 
 
        Item item = googleScholar.getRecordsByAuthor(author, subject);
-       System.out.println("\n\n Author: " + author + "\n Subject: " + subject  + "\n Cites: " + item.citationCount);
+
+       System.out.println("\n\n Author: " + author == null ? "" : author + "\n Subject: " + subject  + "\n Cites: " + item.citationCount);
 
        // String cites = "10";
-        String authors = author.replace(" "," ");
+        String authors = "";
+        if (author != null) {
+           authors = author.replace(" "," ");
+        }
+
         System.out.println("authors: " + authors);
         //Integer totalCitation = Integer.parseInt(cites);
 

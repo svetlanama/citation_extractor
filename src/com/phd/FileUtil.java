@@ -13,7 +13,7 @@ public class FileUtil {
 
     static String base = "/var/data";
     static String pathInput = new File(base).toURI().relativize(new File("input").toURI()).getPath();
-    static String pathDone = new File(base).toURI().relativize(new File("done").toURI()).getPath();
+    static String pathDone = new File(base).toURI().relativize(new File("tmp_done").toURI()).getPath();
 
     //static String pathCSV = new File("/var/data").toURI().relativize(new File("output/citation_all.csv").toURI()).getPath();
 

@@ -50,9 +50,10 @@ public class GoogleScholar {
         String url = "http://scholar.google.com/scholar?start=0&num=1&hl=en&as_sdt=0";
 
         //Build  query
-        if (author.length() > 0) {
+        if (author != null) { //author.length() > 0
             String subj = URLEncoder.encode(subject, "UTF-8");
-            url += "&q=as_subj%3D%22=" + subj;
+            //url += "&q=as_subj%3D%22=" + subj; //first 440 docs
+            url += "&q=" + subj;
             System.out.println("subj: " + subj);
 
             String aut = URLEncoder.encode(author, "UTF-8");
@@ -95,18 +96,32 @@ public class GoogleScholar {
             return item;
         }
         for (Element element : elements) {
-            //System.out.println("element: " + element);
+            System.out.println(">>>>element: " + element);
 
             Elements links = element.select(".gs_fl a[href]");
-            //System.out.println("links size: " + links.size());
+            System.out.println("????links size: " + links.size());
+
+
+            int countNotFound = 0;
             for (Element link : links) {
+                 System.out.println(">>>>>link: " + link);
                  if (link.attr("href").contains("cites=")){
-                     //System.out.println("links: " + link.text());
+                     System.out.println(">>>>>YES link: " + link.text());
                      item.citationCount = Integer.parseInt(link.text().replace("Cited by ",""));
                      return item;
-                 }
+                 } else {
+                    countNotFound ++;
+                }
 
             }
+            // if we check every link but found nothing
+            if (links.size() == countNotFound) {
+                System.out.println(">>>>>NO FOUND countNotFound: " + countNotFound);
+                item.citationCount = 0; //no cites
+                item.errorMessage = "no cites";
+                return item;
+            }
+
         }
 
         item.citationCount = -1;

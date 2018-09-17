@@ -3,10 +3,93 @@
   <component name="ChangeListManager">
     <list default="true" id="553e6fc0-445c-43b3-ba5d-18b0afa412e9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/CSVBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/CSVBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem/DAC-2004-10(08)-0673.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem/DAC-2004-10(08)-0698 copy.PDF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/problem/DAC-2004-10(08)-0698.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0588.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0614.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(07)-0622.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0698.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0741.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(08)-0761.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2004-10(10)-0940.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(01)-0001.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(01)-0011.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(01)-0069.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(02)-0135.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(02)-0167.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(02)-0168.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(03)-0202.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(03)-0234.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(03)-0248.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(03)-0270.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(03)-0274.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(03)-0275.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(03)-0281.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(03)-0289.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(04)-0297.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(04)-0349.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(04)-0351.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(04)-0365.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(05)-0491.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(06)-0509.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(06)-0553.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(07)-0611.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(07)-0618.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(07)-0628.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(07)-0648.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(07)-0652.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(07)-0658.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(08)-0700.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(08)-0716.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(08)-0732.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(08)-0738.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(08)-0744.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(08)-0762.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(08)-0764.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(09)-0857.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(09)-0887.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(10)-0889.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(10)-0895.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(10)-0909.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(10)-0915.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(10)-0927.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2005-11(10)-0943.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(01)-0063.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(02)-0097.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(02)-0125.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(02)-0149.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(02)-0167.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(02)-0173.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(02)-0182.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(02)-0188.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(03)-0273.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(03)-0290.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(04)-0338.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(04)-0352.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(04)-0364.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(04)-0372.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(05)-0405.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(05)-0425.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(06)-0528.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(06)-0548.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(06)-0598.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(07)-0683.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(08)-0711.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(08)-0767.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(09)-0821.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(09)-0863.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(09)-0879.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(09)-0885.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/DAC-2006-12(10)-0955.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/DocumentFileReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/DocumentFileReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/citation_extractor/com/phd/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/citation_final.csv" beforeDir="false" afterPath="$PROJECT_DIR$/output/citation_final.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/problem/DAC-2005-11(01)-0077.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/problem/DAC-2006-12(01)-0077.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/problem/DAC-2006-12(08)-0805.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/problem/DAC-2006-12(11)-1061.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/phd/DocumentFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/phd/DocumentFileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/phd/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/phd/FileUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/phd/GoogleScholar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/phd/GoogleScholar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/phd/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/phd/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,24 +102,24 @@
     <session id="1354225758">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="17" />
+          <entry key="project.closed" value="20" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.6" value="5" />
-          <entry key="project.open.time.7" value="7" />
+          <entry key="project.open.time.6" value="6" />
+          <entry key="project.open.time.7" value="9" />
           <entry key="project.open.time.8" value="3" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="18" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="24" />
-          <entry key="java" value="4326" />
+          <entry key="java" value="4718" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4326" />
+          <entry key="JAVA" value="4718" />
           <entry key="PLAIN_TEXT" value="24" />
         </counts>
       </usages-collector>
@@ -58,11 +141,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/phd/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="582">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="510">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -73,8 +156,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/phd/TaskManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+            <state relative-caret-position="105">
+              <caret line="9" column="29" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,8 +180,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/phd/FileUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="28" column="88" selection-start-line="28" selection-start-column="88" selection-end-line="28" selection-end-column="88" />
+            <state relative-caret-position="135">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -109,8 +192,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/phd/DocumentFileReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1320">
-              <caret line="99" column="5" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
+            <state relative-caret-position="121">
+              <caret line="86" selection-start-line="86" selection-end-line="86" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,16 +204,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/phd/Item.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="25" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="25" />
+            <state relative-caret-position="135">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/phd/CSVBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="-106">
               <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -166,8 +249,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/phd/GoogleScholar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
-              <caret line="87" selection-start-line="87" selection-end-line="87" />
+            <state relative-caret-position="192">
+              <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="126" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -186,12 +269,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>publi</find>
-      <find>2004</find>
-      <find>url</find>
-      <find>serialVersionUID</find>
-      <find>An Algorithm for Converting Floating-Point Computations to Fixed-Point in MATLAB based FPGA design</find>
-      <find>element size:</find>
       <find>getDocument</find>
       <find>random proxy index:</find>
       <find>loading.......:</find>
@@ -204,17 +281,24 @@
       <find>document reading error:</find>
       <find>connection error:</find>
       <find>using proxy:</find>
-      <find>Cites</find>
       <find>DOC:</find>
       <find>25</find>
       <find>An analytical approach for dynamic range estimation</find>
       <find>cited by</find>
-      <find>cited</find>
       <find>On Path-Based Learning And Its Applications In Delay Test And Diagnosis</find>
       <find>cites</find>
       <find>res:</find>
       <find>FILE</find>
+      <find>Cites</find>
+      <find>all 6 vers</find>
+      <find>all 6</find>
       <find>Cites:</find>
+      <find>FILE exists:</find>
+      <find>Electrical Engineerin</find>
+      <find>url:</find>
+      <find>Cited by 205</find>
+      <find>cited</find>
+      <find>????links size:</find>
     </findStrings>
     <dirStrings>
       <dir>$USER_HOME$/Downloads/pdfbox-app-2.0.11.jar</dir>
@@ -233,21 +317,21 @@
         <option value="$PROJECT_DIR$/src/com/phd/ProxyUtil.java" />
         <option value="$PROJECT_DIR$/src/com/phd/CPProxy.java" />
         <option value="$PROJECT_DIR$/src/com/phd/ApiProxy.java" />
-        <option value="$PROJECT_DIR$/src/com/phd/FileUtil.java" />
         <option value="$PROJECT_DIR$/src/com/phd/Item.java" />
-        <option value="$PROJECT_DIR$/src/com/phd/GoogleScholar.java" />
         <option value="$PROJECT_DIR$/src/com/phd/RandomUtil.java" />
-        <option value="$PROJECT_DIR$/src/com/phd/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/phd/DocumentFileReader.java" />
         <option value="$PROJECT_DIR$/src/com/phd/TaskManager.java" />
         <option value="$PROJECT_DIR$/src/com/phd/CSVBuilder.java" />
+        <option value="$PROJECT_DIR$/src/com/phd/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/phd/DocumentFileReader.java" />
+        <option value="$PROJECT_DIR$/src/com/phd/FileUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/phd/GoogleScholar.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
+    <option name="y" value="22" />
     <option name="width" value="1440" />
-    <option name="height" value="825" />
+    <option name="height" value="827" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -289,12 +373,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536229524467" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537149551849" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -343,9 +427,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1440" height="825" extended-state="0" />
+    <frame x="0" y="22" width="1440" height="827" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30615166" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3190272" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -354,7 +439,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3287858" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.68212825" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4517007" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -441,8 +526,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/phd/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="510">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -451,8 +536,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/phd/TaskManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+        <state relative-caret-position="105">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -463,43 +548,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="9" column="17" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/phd/FileUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="28" column="88" selection-start-line="28" selection-start-column="88" selection-end-line="28" selection-end-column="88" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/phd/DocumentFileReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="99" column="5" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/phd/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/phd/CSVBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -526,10 +574,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/phd/DocumentFileReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/phd/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/phd/FileUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/phd/GoogleScholar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        <state relative-caret-position="192">
+          <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="126" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/phd/CSVBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-106">
+          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

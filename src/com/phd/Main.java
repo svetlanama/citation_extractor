@@ -40,6 +40,6 @@ public class Main {
 
         CSVBuilder.getInstance().createCSV();
 
-        TaskManager.getInstance().start();
+       // TaskManager.getInstance().start();
     }
 }
