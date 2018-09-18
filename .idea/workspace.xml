@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="553e6fc0-445c-43b3-ba5d-18b0afa412e9" name="Default Changelist" comment="" />
+    <list default="true" id="553e6fc0-445c-43b3-ba5d-18b0afa412e9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/output/citation_final.csv" beforeDir="false" afterPath="$PROJECT_DIR$/output/citation_final.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/problem/DAC-2006-12(01)-0001.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/problem/DAC-2006-12(02)-0174.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/problem/DAC-2006-12(04)-0370.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/seems not found correct/DAC-2005-11(07)-0611.PDF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/seems not found correct/DAC-2006-12(02)-0097.PDF" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,7 +20,7 @@
     <session id="1354225758">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="21" />
+          <entry key="project.closed" value="22" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.6" value="7" />
           <entry key="project.open.time.7" value="10" />
@@ -124,8 +131,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/phd/CSVBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="43" column="50" lean-forward="true" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+            <state relative-caret-position="60">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -339,7 +346,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="827" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32761088" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -350,7 +356,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3287858" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4517007" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4517007" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -524,8 +530,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/phd/CSVBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="43" column="50" lean-forward="true" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+        <state relative-caret-position="60">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
