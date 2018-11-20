@@ -11,11 +11,8 @@ public class ProxyUtil {
 
         ApiProxy apiProxy = new ApiProxy();
         List<CPProxy> res = apiProxy.getProxyList();
-        System.out.println("res: " + res);
-        System.out.println("res size: " + res.size());
 
         CPProxyList = res;
         callback.onSuccess();
     }
-
 }

@@ -20,10 +20,8 @@ public class DocumentFileReader {
 
     public void listFilesForFolder(final File folder) throws IOException, InterruptedException {
 
-
         for (final File fileEntry : folder.listFiles()) {
-            System.out.println("fileEntry: " + fileEntry.getName());
-            //TODO:  remove all DSSTORE and check for extension
+            //System.out.println("fileEntry: " + fileEntry.getName());
 
             if (!fileEntry.getName().equals(".DS_Store")) {
 
@@ -45,6 +43,7 @@ public class DocumentFileReader {
     }
 
     private void readPdfFile(File inFile) throws IOException {
+
         PDDocument document = PDDocument.load(inFile);
 
         if (!document.isEncrypted()) {
@@ -66,7 +65,7 @@ public class DocumentFileReader {
             String subject = info.getTitle().trim();
             Integer createdDate = info.getCreationDate().getWeekYear();
 
-            //Just to remove xome info before title
+            //To remove some info before title
             if(subject.contains(": "))  {
                 subject = subject.split(": ")[1];
             }
@@ -79,31 +78,21 @@ public class DocumentFileReader {
     }
 
     private void performSearchInGoogleScholar(String filename, String author, String subject, Integer createdDate) throws IOException {
-       GoogleScholar googleScholar = new GoogleScholar();
-       System.out.println("\n\n Author: " + author + "\n Subject: " + subject);
 
+        GoogleScholar googleScholar = new GoogleScholar();
+        Item item = googleScholar.getRecordsByAuthor(author, subject);
 
-       Item item = googleScholar.getRecordsByAuthor(author, subject);
-
-       System.out.println("\n\n Author: " + author == null ? "" : author + "\n Subject: " + subject  + "\n Cites: " + item.citationCount);
-
-       // String cites = "10";
         String authors = "";
         if (author != null) {
            authors = author.replace(" "," ");
         }
 
         System.out.println("authors: " + authors);
-        //Integer totalCitation = Integer.parseInt(cites);
 
-
-        // If everything is fine add to csv and move file to done
+        // If everything is fine: app will add to csv and move file to done
         if(item.citationCount > -1) {
             CSVBuilder.getInstance().buildCSV(item, filename, authors, subject, createdDate);
             FileUtil.moveToDone(filename);
         }
     }
-
 }
-
-//https://scholar.google.com.ua/scholar?hl=ru&as_sdt=0%2C5&q=The+Good%2C+the+Bad%2C+and+the+Ugly+of+Silicon+Debug+&btnG=

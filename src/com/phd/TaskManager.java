@@ -15,12 +15,11 @@ public class TaskManager {
 
     private void reGenerateProxyList() throws IOException, InterruptedException {
 
-
         ProxyUtil.generateProxyList(new proxyCallback(){
             @Override
             public void onSuccess() throws IOException, InterruptedException {
-                // no errors
-                System.out.println("reGenerateProxyList Done");
+                //System.out.println("re-generating of ProxyList is done");
+
                 //clear all existed random numbers
                 RandomUtil.getInstance().clearExistedRandomList();
             }
@@ -31,12 +30,11 @@ public class TaskManager {
                 System.out.println(err);
             }
         });
-
     }
 
     void start() {
 
-        int MINUTES = 2; // The delay in minutes
+        int MINUTES = 2;
 
         timer.schedule(new TimerTask() {
             @Override
@@ -55,7 +53,6 @@ public class TaskManager {
     void stop() {
       //  timer.cancel();
       //  timer.purge();
-
     }
 
 }

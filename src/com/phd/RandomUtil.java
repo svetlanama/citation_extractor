@@ -19,12 +19,12 @@ public class RandomUtil {
 
 
     public Integer generateRandom(Integer size) {
+
         Random rand = new Random();
         int index = rand.nextInt(size) + 0;
-        System.out.println("random index:" + index);
+
         while (isExist(index)) {
             index = rand.nextInt(size) + 0;
-            System.out.println("re-generated random index:" + index);
         }
 
         addRandom(index);
@@ -41,7 +41,6 @@ public class RandomUtil {
 
     public void addRandom(Integer num) {
         map.put(num.toString(), num);
-        System.out.println("ADDED: " + map.get(num.toString()));
     }
 
 }

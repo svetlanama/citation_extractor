@@ -37,11 +37,8 @@ public class ApiProxy {
 
                 CPProxy.adress = output.split(":")[0];
                 CPProxy.port = output.split(":")[1].split("#")[0];
-                // System.out.println("adress:" + CPProxy.adress);
-                // System.out.println("port:" + CPProxy.port);
 
                 list.add(CPProxy);
-                // System.out.println(output);
             }
 
             conn.disconnect();
@@ -55,7 +52,3 @@ public class ApiProxy {
         return list;
     }
 }
-
-
-
-// http://list.didsoft.com/get?email=vasileyko.alex@gmail.com&pass=unxgk7&pid=httppremium&https=yes

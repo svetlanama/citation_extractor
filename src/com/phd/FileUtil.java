@@ -15,18 +15,14 @@ public class FileUtil {
     static String pathInput = new File(base).toURI().relativize(new File("input").toURI()).getPath();
     static String pathDone = new File(base).toURI().relativize(new File("tmp_done").toURI()).getPath();
 
-    //static String pathCSV = new File("/var/data").toURI().relativize(new File("output/citation_all.csv").toURI()).getPath();
-
-
-
     public static void moveToDone(String filename) throws IOException {
+
         String from = pathInput + filename;
         String to = pathDone + filename;
 
-         System.out.println("from: " + from);
+        System.out.println("from: " + from);
         System.out.println("to: " + to);
 
         Files.move(Paths.get(from), Paths.get(to), StandardCopyOption.REPLACE_EXISTING);
-
     }
 }
